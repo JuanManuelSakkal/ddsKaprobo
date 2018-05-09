@@ -15,5 +15,12 @@ namespace TP_Integrador.Clases
             int meses = tiempoTranscurrido.Days / 30;
             return meses;
         }
+
+        public Administrador(int unId, string unNombreUsuario, string unPassword, string unNombre, 
+            string unApellido, string unDomicilio, DateTime unaFechaDeAlta) : base(unId, unNombreUsuario, unPassword, unNombre,
+            unApellido, unDomicilio, unaFechaDeAlta)
+        {
+
+        }
     }
 }
