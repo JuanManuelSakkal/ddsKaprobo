@@ -27,5 +27,11 @@ namespace TP_Integrador.Clases
         /*
          * pasarle al constructor de Categoria el consumo mensual, desde Usuario, y cargar los atributos desde el mismo constructor
          */
+
+
+        /**** OPCION 3 ****/
+        /*
+         * Hacer clases de categorias con patrones?
+         */
     }
 }

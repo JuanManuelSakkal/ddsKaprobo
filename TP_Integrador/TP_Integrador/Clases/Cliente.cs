@@ -13,12 +13,12 @@ namespace TP_Integrador.Clases
         public string numeroDoc { get; set; }
         public string telefono { get; set; }
         public Categoria categoria { get; set; }
-        public Dispositivo[] dispositivos { get; set; }
-
+        public List<Dispositivo> dispositivos { get; set; }
         //es re feo :(
+        
 
         public Cliente(int unId, string unNombreUsuario, string unPassword, string unNombre, string unApellido, string unDomicilio, DateTime unaFechaDeAlta, 
-            string unTD, string unND, string unTel, Categoria unaCat, Dispositivo[] unosDisp) : base(unId, unNombreUsuario, unPassword, unNombre,
+            string unTD, string unND, string unTel, Categoria unaCat, List<Dispositivo> unosDisp) : base(unId, unNombreUsuario, unPassword, unNombre,
             unApellido, unDomicilio, unaFechaDeAlta)
         {
             tipoDoc = unTD;
@@ -31,7 +31,7 @@ namespace TP_Integrador.Clases
 
         public int CantidadDispositivos()
         {
-            return this.dispositivos.Length;
+            return this.dispositivos.Count();
         }
         
         public bool HayDispositivoEncendido()

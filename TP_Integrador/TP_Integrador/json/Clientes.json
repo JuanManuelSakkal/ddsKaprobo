@@ -1,0 +1,54 @@
+{
+  "id":"1",
+  "usuario":"nom",
+  "password":"askj24nem",
+  "nombre":"Juan Martin",
+  "apellido":"Del Potro",
+  "domicilio":"Medrano y Cordoba",
+  "fechaDeAlta":"01-01-2000",
+  "tipoDoc":"DNI",
+  "numDoc":"35000000",
+  "tel":"48888888",
+  "categoria":"1",
+  "dispositivos": [
+    1,
+    2,
+    3
+  ]
+}
+{
+  "id":"2",
+  "usuario":"onm",
+  "password":"asdjk4j5b",
+  "nombre":"David",
+  "apellido":"Nalbandian",
+  "domicilio":"Mozart 2300",
+  "fechaDeAlta":"01-01-2001",
+  "tipoDoc":"DNI",
+  "numDoc":"35000001",
+  "tel":"48888886",
+  "categoria":"2",
+  "dispositivos": [
+    4,
+    5,
+    6
+  ]
+}
+{
+  "id":"3",
+  "usuario":"mon",
+  "password":"uuhnmn6jh",
+  "nombre":"Gaston",
+  "apellido":"Gaudio",
+  "domicilio":"Cordoba 3000",
+  "fechaDeAlta":"01-01-2002",
+  "tipoDoc":"DNI",
+  "numDoc":"35000002",
+  "tel":"48888889",
+  "categoria":"3",
+  "dispositivos": [
+    7,
+    8,
+    9
+  ]
+}

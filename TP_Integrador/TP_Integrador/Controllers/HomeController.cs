@@ -3,6 +3,8 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
+using TP_Integrador.Clases;
+using TP_Integrador.Helpers;
 
 namespace TP_Integrador.Controllers
 {
@@ -10,6 +12,8 @@ namespace TP_Integrador.Controllers
     {
         public ActionResult Index()
         {
+            List<Cliente> listadoClientes = ClienteImporter.ImportarUsuarios();
+            ViewBag["NombrePrueba"] = listadoClientes[0].nombre;
             return View();
         }
 
