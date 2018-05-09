@@ -15,6 +15,16 @@ namespace TP_Integrador.Clases
         public string domicilio { get; set; }
         public DateTime fechaDeAlta { get; set; }
 
+        public Usuario(int unId, string unNombreUsuario, string unPassword, string unNombre, string unApellido, string unDomicilio, DateTime unaFechaDeAlta)
+        {
+            idUsuario = unId;
+            nombreUsuario = unNombreUsuario;
+            password = unPassword;
+            nombre = unNombre;
+            apellido = unApellido;
+            domicilio = unDomicilio;
+            fechaDeAlta = unaFechaDeAlta;
+        }
        
     }
 

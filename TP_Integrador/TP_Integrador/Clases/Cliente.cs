@@ -14,6 +14,19 @@ namespace TP_Integrador.Clases
         public string telefono { get; set; }
         public Categoria categoria { get; set; }
         public Dispositivo[] dispositivos { get; set; }
+
+        //es re feo :(
+
+        public Cliente(int unId, string unNombreUsuario, string unPassword, string unNombre, string unApellido, string unDomicilio, DateTime unaFechaDeAlta, 
+            string unTD, string unND, string unTel, Categoria unaCat, Dispositivo[] unosDisp) : base(unId, unNombreUsuario, unPassword, unNombre,
+            unApellido, unDomicilio, unaFechaDeAlta)
+        {
+            tipoDoc = unTD;
+            numeroDoc = unND;
+            telefono = unTel;
+            categoria = unaCat;
+            dispositivos = unosDisp;
+        }
         
 
         public int CantidadDispositivos()
