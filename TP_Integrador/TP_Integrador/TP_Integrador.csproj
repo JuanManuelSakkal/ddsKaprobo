@@ -189,6 +189,10 @@
     <Compile Include="App_Start\IdentityConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="App_Start\Startup.Auth.cs" />
+    <Compile Include="Clases\Administrador.cs" />
+    <Compile Include="Clases\Dispositivo.cs" />
+    <Compile Include="Clases\Categoria.cs" />
+    <Compile Include="Clases\Cliente.cs" />
     <Compile Include="Clases\Usuario.cs" />
     <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\HomeController.cs" />

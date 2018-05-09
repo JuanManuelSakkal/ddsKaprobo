@@ -7,12 +7,16 @@ namespace TP_Integrador.Clases
 {
     public class Usuario
     {
-        public int idUsuario{ get; set; }
+        public int idUsuario { get; set; }
         public string nombreUsuario { get; set; }
         public string password { get; set; }
         public string nombre { get; set; }
         public string apellido { get; set; }
         public string domicilio { get; set; }
         public DateTime fechaDeAlta { get; set; }
+
+       
     }
+
+   
 }
