@@ -32,7 +32,7 @@ namespace TP_Integrador.Clases
 
         public void Update()
         {
-            if (reglas.TrueForAll(SeCumplenTodas))
+            if (reglas.TrueForAll(SeCumpleRegla))
             {
                 foreach (DispositivoInteligente dispositivo in dispositivos)
                 {
@@ -41,9 +41,9 @@ namespace TP_Integrador.Clases
             }
         }
 
-        private bool SeCumplenTodas(Regla unaRegla)
+        private bool SeCumpleRegla(Regla unaRegla)
         {
-            return unaRegla.SeCumple();
+            return unaRegla.SeCumple();            
         }
     }
 }

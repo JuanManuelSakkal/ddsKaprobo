@@ -11,9 +11,11 @@ namespace TP_Integrador.Clases
         public EstadoDispositivo modo { get; set;}
         public Fabricante interfaz { get; set; }
 
-        public DispositivoInteligente(string unNombreDispositivo, int unKwPorHora) : base(unNombreDispositivo, unKwPorHora)
+        public DispositivoInteligente(string unNombreDispositivo, int unKwPorHora, bool adaptado, Fabricante unaInterfaz) : base(unNombreDispositivo, unKwPorHora)
         {
             modo = new Apagado();
+            esAdaptado = adaptado;
+            interfaz = unaInterfaz;
         }
 
         public bool EstaEncendido()
@@ -24,6 +26,11 @@ namespace TP_Integrador.Clases
         public bool EstaApagado()
         {
             return modo.GetType().Equals(typeof(Apagado));
+        }
+
+        public bool EstaEnModoAhorro()
+        {
+            return modo.GetType().Equals(typeof(AhorroEnergia));
         }
 
         public bool Encender()
