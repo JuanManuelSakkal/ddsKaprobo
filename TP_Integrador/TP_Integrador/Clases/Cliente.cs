@@ -13,9 +13,7 @@ namespace TP_Integrador.Clases
         public string numeroDoc { get; set; }
         public string telefono { get; set; }
         public Categoria categoria { get; set; }
-        public List<Dispositivo> dispositivos { get; set; }
-        //es re feo :(
-        
+        public List<Dispositivo> dispositivos { get; set; }        
 
         public Cliente(int unId, string unNombreUsuario, string unPassword, string unNombre, string unApellido, string unDomicilio, DateTime unaFechaDeAlta, 
             string unTD, string unND, string unTel, Categoria unaCat, List<Dispositivo> unosDisp) : base(unId, unNombreUsuario, unPassword, unNombre,
@@ -40,10 +38,13 @@ namespace TP_Integrador.Clases
             int cantDisp = this.CantidadDispositivos();
             for (int i = 0; i < cantDisp; i++)
             {
-                if (this.dispositivos[i].encendido)
+                if (dispositivos[i].GetType().Equals(typeof(DispositivoInteligente)))
                 {
-                    hayEncendido = true;
-                    break;
+                    if (((DispositivoInteligente)dispositivos[i]).EstaEncendido())
+                    {
+                        hayEncendido = true;
+                        break;
+                    }
                 }
             }
 
@@ -56,11 +57,14 @@ namespace TP_Integrador.Clases
             int cantDisp = this.CantidadDispositivos();
             for (int i = 0; i < cantDisp; i++)
             {
-                if (this.dispositivos[i].encendido)
+                if (dispositivos[i].GetType().Equals(typeof(DispositivoInteligente)))
                 {
-                    cantEncendidos++;
-                   
-                }
+                    if (((DispositivoInteligente)dispositivos[i]).EstaEncendido())
+                    {
+                        cantEncendidos++;
+
+                    }
+                }              
             }
 
             return cantEncendidos;

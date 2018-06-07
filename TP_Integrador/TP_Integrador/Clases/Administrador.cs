@@ -14,7 +14,7 @@ namespace TP_Integrador.Clases
 
         }
 
-        public int tiempoComoAdmin()
+        public int TiempoComoAdmin()
         {
             DateTime fechaActual = DateTime.Now;
             TimeSpan tiempoTranscurrido = fechaActual - this.fechaDeAlta;

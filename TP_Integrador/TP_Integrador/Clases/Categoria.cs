@@ -7,13 +7,14 @@ namespace TP_Integrador.Clases
 {
     public class Categoria
     {
+        int idCategoria { get; set; }
         public float cargoFijo { get; set; }
         public float cargoVariable { get; set; }
 
-        public Categoria(float unCargoFijo, float unCargoVariable)
+        public Categoria(/*float unCargoFijo, float unCargoVariable*/)
         {
-            this.cargoFijo = unCargoFijo;
-            this.cargoVariable = unCargoVariable;
+            //this.cargoFijo = unCargoFijo;
+            //this.cargoVariable = unCargoVariable;
         }
 
         /**** OPCION 1 ****/

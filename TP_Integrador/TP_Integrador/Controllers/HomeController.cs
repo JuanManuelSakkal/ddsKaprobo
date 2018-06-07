@@ -10,10 +10,16 @@ namespace TP_Integrador.Controllers
 {
     public class HomeController : Controller
     {
+        public HomeController()
+        {
+            System.Diagnostics.Debug.WriteLine("Holissss4321");
+        }
+
         public ActionResult Index()
         {
-            List<Cliente> listadoClientes = ClienteImporter.ImportarUsuarios();
-            ViewBag["NombrePrueba"] = listadoClientes[0].nombre;
+            //List<Cliente> listadoClientes = ClienteImporter.ImportarUsuarios();
+            //ViewBag["NombrePrueba"] = listadoClientes[0].nombre;
+            ViewBag.Title = "Prueba";
             return View();
         }
 

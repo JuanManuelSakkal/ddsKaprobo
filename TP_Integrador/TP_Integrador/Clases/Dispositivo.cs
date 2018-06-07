@@ -9,13 +9,11 @@ namespace TP_Integrador.Clases
     {
         public string nombreDispositivo{ get; set; }
         public int kwPorHora { get; set; }
-        public bool encendido { get; set; }
 
-        public Dispositivo(string unNombreDispositivo, int unkwPorHora, bool unEncendido)
+        public Dispositivo(string unNombreDispositivo, int unKwPorHora)
         {
             nombreDispositivo = unNombreDispositivo;
-            kwPorHora = unkwPorHora;
-            encendido = unEncendido;
+            kwPorHora = unKwPorHora;
         }
     }
 }
