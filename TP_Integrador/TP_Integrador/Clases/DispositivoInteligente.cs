@@ -35,15 +35,21 @@ namespace TP_Integrador.Clases
 
         public bool Encender()
         {
-            modo = new Encendido();
-            //bool respuesta = modo.correr o algo asi
+            if(modo.GetType() != typeof(Encendido))
+            {
+                modo = new Encendido();
+            }
+
             return true;
         }
 
         public bool Apagar()
         {
-            modo = new Apagado();
-            //bool respuesta = modo.correr o algo asi
+            if(modo.GetType() != typeof(Apagado))
+            {
+                modo = new Apagado();
+            }
+
             return true;
         }
 
