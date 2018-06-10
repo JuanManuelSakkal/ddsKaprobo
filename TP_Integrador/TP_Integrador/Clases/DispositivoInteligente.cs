@@ -20,15 +20,15 @@ namespace TP_Integrador.Clases
 
         public bool EstaEncendido()
         {
-            return modo.GetType().Equals(typeof(Encendido));
+            return modo.EstaEncendido();
         }
 
         public bool EstaApagado()
         {
-            return modo.GetType().Equals(typeof(Apagado));
+            return modo.EstaApagado();
         }
 
-        public bool EstaEnModoAhorro()
+        public bool EstaEnModoAhorro() // Duda
         {
             return modo.GetType().Equals(typeof(AhorroEnergia));
         }

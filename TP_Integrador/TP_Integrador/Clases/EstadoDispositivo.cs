@@ -7,5 +7,9 @@ namespace TP_Integrador.Clases
 {
     public abstract class EstadoDispositivo
     {
+       abstract public bool EstaEncendido();
+
+       abstract public bool EstaApagado();
+
     }
 }
