@@ -77,6 +77,9 @@ namespace TP_Integrador.Clases
             return cantApagados;
         }
 
-
+        public void SetHorasUso(DispositivoEstandar unDispositivo, int horas)
+        {
+            unDispositivo.SetHorasUso(horas);
+        }
     }
 }

@@ -10,12 +10,15 @@ namespace TP_Integrador.Clases
         public bool esAdaptado { get; set; }
         public EstadoDispositivo modo { get; set;}
         public Fabricante interfaz { get; set; }
+        public TimeSpan HorasPrendido { get => HorasPrendido; set => HorasPrendido = value; }
+        public DateTime HoraPrendido;
 
         public DispositivoInteligente(string unNombreDispositivo, int unKwPorHora, bool adaptado, Fabricante unaInterfaz) : base(unNombreDispositivo, unKwPorHora)
         {
             modo = new Apagado();
             esAdaptado = adaptado;
             interfaz = unaInterfaz;
+            HorasPrendido = new TimeSpan(0,0,0);
         }
 
         public bool EstaEncendido()
@@ -38,6 +41,7 @@ namespace TP_Integrador.Clases
             if(modo.GetType() != typeof(Encendido))
             {
                 modo = new Encendido();
+                HoraPrendido = DateTime.Now;
             }
 
             return true;
@@ -48,6 +52,8 @@ namespace TP_Integrador.Clases
             if(modo.GetType() != typeof(Apagado))
             {
                 modo = new Apagado();
+                // Voy acumulando un TimeSpan para cuando se realice el calculo de consumo
+                HorasPrendido += (DateTime.Now.TimeOfDay - HoraPrendido.TimeOfDay);
             }
 
             return true;

@@ -7,5 +7,9 @@ namespace TP_Integrador.Clases
 {
     public class DispositivoEstandar
     {
+        public float HorasUso;
+
+        public void SetHorasUso(int horas) => HorasUso = horas;
+
     }
 }
