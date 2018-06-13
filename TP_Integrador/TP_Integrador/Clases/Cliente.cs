@@ -81,5 +81,18 @@ namespace TP_Integrador.Clases
         {
             unDispositivo.SetHorasUso(horas);
         }
+
+        public void AgregarDispositivoEstandar(string unNombreDispositivo, int unKwPorHora)
+        {
+            dispositivos.Add(new DispositivoEstandar(unNombreDispositivo, unKwPorHora));
+        }
+
+        public void AgregarDispositivoInteligente()
+        {
+            dispositivos.Add(new DispositivoInteligente(string unNombreDispositivo, int unKwPorHora));
+
+        }
+
+        public void AdaptarDispositivoEstandar
     }
 }

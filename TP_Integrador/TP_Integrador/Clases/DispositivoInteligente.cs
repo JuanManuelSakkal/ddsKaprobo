@@ -13,13 +13,17 @@ namespace TP_Integrador.Clases
         public TimeSpan HorasPrendido { get => HorasPrendido; set => HorasPrendido = value; }
         public DateTime HoraPrendido;
 
-        public DispositivoInteligente(string unNombreDispositivo, int unKwPorHora, bool adaptado, Fabricante unaInterfaz) : base(unNombreDispositivo, unKwPorHora)
+        public DispositivoInteligente(string unNombreDispositivo, int unKwPorHora) : base(unNombreDispositivo, unKwPorHora)
         {
             modo = new Apagado();
-            esAdaptado = adaptado;
-            interfaz = unaInterfaz;
+            //esAdaptado = adaptado;
+            //interfaz = unaInterfaz;
             HorasPrendido = new TimeSpan(0,0,0);
         }
+
+        //public void AdaptarDispositivo
+
+        //public DispositivoInteligenteAdaptado public DispositivoInteligente(string unNombreDispositivo, int unKwPorHora, bool adaptado, Fabricante unaInterfaz) : base(unNombreDispositivo, unKwPorHora)
 
         public bool EstaEncendido()
         {
