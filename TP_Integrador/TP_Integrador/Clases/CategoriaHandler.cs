@@ -78,5 +78,10 @@ namespace TP_Integrador.Clases
             return 0; // Si la lista no tiene Rows
         }
 
+        public Categoria recategorizar(int consumo)
+        {
+            
+        }
+
     }
 }

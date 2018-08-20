@@ -10,6 +10,7 @@ namespace TP_Integrador.Clases
         string categoria { get; set; }
         public float cargoFijo { get; set; }
         public float cargoVariable { get; set; }
+        private CategoriaHandler categoryHandler;
 
         public Categoria(CategoriaHandler categoriaHandler)
         {
@@ -18,8 +19,8 @@ namespace TP_Integrador.Clases
             categoria = "R1";
             cargoFijo = categoriaHandler.getCargoFijoPorCategoria(categoria);
             cargoVariable = categoriaHandler.getCargoVariablePorCategoria(categoria);
-
+            categoryHandler = categoriaHandler;
         }
-        
+
     }
 }

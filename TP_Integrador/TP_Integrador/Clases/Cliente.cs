@@ -13,16 +13,18 @@ namespace TP_Integrador.Clases
         public string numeroDoc { get; set; }
         public string telefono { get; set; }
         public Categoria categoria { get; set; }
+        public int puntos { get; set; }
         public List<Dispositivo> dispositivos { get; set; }        
 
-        public Cliente(int unId, string unNombreUsuario, string unPassword, string unNombre, string unApellido, string unDomicilio, DateTime unaFechaDeAlta, 
-            string unTD, string unND, string unTel, Categoria unaCat, List<Dispositivo> unosDisp) : base(unId, unNombreUsuario, unPassword, unNombre,
-            unApellido, unDomicilio, unaFechaDeAlta)
+        public Cliente(int unId, string unNombreUsuario, string unPassword, string unNombre, string unApellido, string unDomicilio, 
+            string unTD, string unND, string unTel, CategoriaHandler categoriaHandler, List<Dispositivo> unosDisp) : base(unId, unNombreUsuario, unPassword, unNombre,
+            unApellido, unDomicilio)
         {
             tipoDoc = unTD;
             numeroDoc = unND;
             telefono = unTel;
-            categoria = unaCat;
+            puntos = 0;
+            categoria = new Categoria(categoriaHandler);
             dispositivos = unosDisp;
         }
         
@@ -72,7 +74,19 @@ namespace TP_Integrador.Clases
 
         public int DispositivosApagados()
         {
-            int cantApagados = this.CantidadDispositivos() - this.DispositivosEncendidos();
+            int cantApagados = 0;
+            int cantDisp = this.CantidadDispositivos();
+            for (int i = 0; i < cantDisp; i++)
+            {
+                if (dispositivos[i].GetType().Equals(typeof(DispositivoInteligente)))
+                {
+                    if (((DispositivoInteligente)dispositivos[i]).EstaApagado())
+                    {
+                        cantApagados++;
+
+                    }
+                }
+            }
 
             return cantApagados;
         }
@@ -93,6 +107,9 @@ namespace TP_Integrador.Clases
 
         }
         */
-       // public void AdaptarDispositivoEstandar
+        // public void AdaptarDispositivoEstandar
+
+       // public void Recategorizar()
+
     }
 }
