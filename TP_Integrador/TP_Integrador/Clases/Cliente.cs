@@ -86,13 +86,13 @@ namespace TP_Integrador.Clases
         {
             dispositivos.Add(new DispositivoEstandar(unNombreDispositivo, unKwPorHora));
         }
-
+        /*
         public void AgregarDispositivoInteligente()
         {
             dispositivos.Add(new DispositivoInteligente(string unNombreDispositivo, int unKwPorHora));
 
         }
-
-        public void AdaptarDispositivoEstandar
+        */
+       // public void AdaptarDispositivoEstandar
     }
 }

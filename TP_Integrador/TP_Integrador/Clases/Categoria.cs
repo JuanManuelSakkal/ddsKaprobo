@@ -7,32 +7,19 @@ namespace TP_Integrador.Clases
 {
     public class Categoria
     {
-        int idCategoria { get; set; }
+        string categoria { get; set; }
         public float cargoFijo { get; set; }
         public float cargoVariable { get; set; }
 
-        public Categoria(/*float unCargoFijo, float unCargoVariable*/)
+        public Categoria(CategoriaHandler categoriaHandler)
         {
-            //this.cargoFijo = unCargoFijo;
-            //this.cargoVariable = unCargoVariable;
+            // Suponiendo que cuando se instancia un nuevo cliente, con su categoria, arranca en R1
+
+            categoria = "R1";
+            cargoFijo = categoriaHandler.getCargoFijoPorCategoria(categoria);
+            cargoVariable = categoriaHandler.getCargoVariablePorCategoria(categoria);
+
         }
-
-        /**** OPCION 1 ****/
-
-        /*
-         * hacer clase CategoriaHandler que sea instanciada por usuario, 
-        le pase el consumo mensual, y esta instancie a su vez la Categoria con los atributos correspindientes
-        */
-
-        /**** OPCION 2 ****/
-        /*
-         * pasarle al constructor de Categoria el consumo mensual, desde Usuario, y cargar los atributos desde el mismo constructor
-         */
-
-
-        /**** OPCION 3 ****/
-        /*
-         * Hacer clases de categorias con patrones?
-         */
+        
     }
 }

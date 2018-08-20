@@ -193,6 +193,7 @@
     <Compile Include="Clases\Administrador.cs" />
     <Compile Include="Clases\AhorroEnergia.cs" />
     <Compile Include="Clases\Apagado.cs" />
+    <Compile Include="Clases\CategoriaHandler.cs" />
     <Compile Include="Clases\Dispositivo.cs" />
     <Compile Include="Clases\Categoria.cs" />
     <Compile Include="Clases\Cliente.cs" />
