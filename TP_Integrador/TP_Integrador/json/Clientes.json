@@ -10,8 +10,8 @@
 	  "tipoDoc":"DNI",
 	  "numDoc":"35000000",
 	  "tel":"48888888",
-	  "categoria":{"idCategoria":"1","cargoFijo":"10","cargoVariable":"15"},
-	  "dispositivos":[{"id":,"2","3"}]
+	  "categoria":{"idCategoria":"R1","cargoFijo":"10","cargoVariable":"15"},
+	  "dispositivos":[{"id":"2","3"}]
 	},
 	{
 	  "id":"2",
@@ -24,7 +24,7 @@
 	  "tipoDoc":"DNI",
 	  "numDoc":"35000001",
 	  "tel":"48888886",
-	  "categoria":{"idCategoria":"2","cargoFijo":"10","cargoVariable":"15"},
+	  "categoria":{"idCategoria":"R2","cargoFijo":"10","cargoVariable":"15"},
 	  "dispositivos":[{"4","5","6"}]
 	},
 	{
@@ -38,7 +38,7 @@
 	  "tipoDoc":"DNI",
 	  "numDoc":"35000002",
 	  "tel":"48888889",
-	  "categoria":{"idCategoria":"3","cargoFijo":"10","cargoVariable":"15"},
+	  "categoria":{"idCategoria":"R3","cargoFijo":"10","cargoVariable":"15"},
 	  "dispositivos":[{"7","8","9"}]
 	}
 ]

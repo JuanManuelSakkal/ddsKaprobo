@@ -24,8 +24,11 @@ namespace TP_Integrador.Helpers
             foreach (dynamic usuario in listUsuarios)
             {
                 // Importar y crear Categoria
+                var category = JsonConvert.DeserializeObject<Categoria>(usuario.categoria);
+                Categoria unaCategoria = new Categoria(category.idCategoria, category.cargoFijo, category.cargoVariable);
                 // Importar y crear la listaDeDispositivos
-                Cliente unCliente = new Cliente(usuario.id, usuario.usuario, usuario.password, usuario.nombre, usuario.apellido, usuario.domicilio, usuario.fechaDeAlta, usuario.tipoDoc, usuario.numDoc, usuario.tel, /* creado anteriormente categoria*/, /*List < Dispositivo > unosDisp*/);
+
+                Cliente unCliente = new Cliente(usuario.id, usuario.usuario, usuario.password, usuario.nombre, usuario.apellido, usuario.domicilio, usuario.fechaDeAlta, usuario.tipoDoc, usuario.numDoc, usuario.tel, unaCategoria/*, List < Dispositivo > unosDisp*/);
                 listadoClientes.Add(unCliente);
             }
 

@@ -22,5 +22,12 @@ namespace TP_Integrador.Clases
             categoryHandler = categoriaHandler;
         }
 
+        public Categoria(string nombre, int unCargoFijo, int unCargoVariable)
+        {
+            categoria = nombre;
+            cargoFijo = unCargoFijo;
+            cargoVariable = unCargoVariable;
+        }
+
     }
 }

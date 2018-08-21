@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 
+
 namespace TP_Integrador.Clases
 {
     public class UserHandler
@@ -10,13 +11,15 @@ namespace TP_Integrador.Clases
 
         private static UserHandler instance;
         private List<Usuario> usuarios;
+        private DateTime fechaInicio { get; set; }
 
         private UserHandler()
         {
-            instance.usuarios = new List<Usuario>();
+            usuarios = new List<Usuario>();
+            fechaInicio = DateTime.Now;
         }
 
-        public static UserHandler getInstance()
+        public static UserHandler GetInstance()
         {
             if (instance == null)
             {
@@ -41,6 +44,18 @@ namespace TP_Integrador.Clases
             Por ahora, mantendrá la lista de Usuarios en memoria.
             Cuando veamos BBDD, se encargará de agregar, modificar, mostrar los elementos de la tabla Usuarios en la BBDD.
         */
+        /*
+        private void recategorizar()
+        {
+            List<Cliente> listaClientes = instance.getClientes();
 
+            foreach(Usuario usuario in instance.usuarios)
+            {
+                usuario.g
+            }
+        }
+
+        private List<Usuario> getClientes() => instance.usuarios.Where(usuario => usuario.GetType().Equals(typeof(Cliente))).ToList();
+        */   
     }
 }

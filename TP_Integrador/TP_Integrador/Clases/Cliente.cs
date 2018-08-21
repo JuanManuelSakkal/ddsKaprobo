@@ -29,15 +29,15 @@ namespace TP_Integrador.Clases
 
         // Constructor para el ClienteImporter
         public Cliente(int unId, string unNombreUsuario, string unPassword, string unNombre, string unApellido, string unDomicilio, DateTime fechaDeAlta,
-            string unTD, string unND, string unTel, Categoria unaCategoria, List<Dispositivo> unosDisp) : base(unId, unNombreUsuario, unPassword, unNombre,
+            string unTD, string unND, string unTel, Categoria unaCategoria/*, List<Dispositivo> unosDisp*/) : base(unId, unNombreUsuario, unPassword, unNombre,
             unApellido, unDomicilio, fechaDeAlta)
         {
             tipoDoc = unTD;
             numeroDoc = unND;
             telefono = unTel;
             puntos = 0;
-           // categoria =
-            dispositivos = unosDisp;
+            categoria = unaCategoria;
+           // dispositivos = unosDisp;
         }
         
 
