@@ -8,10 +8,10 @@ namespace TP_Integrador.Clases
 {
     public class CategoriaHandler
     {
-        // Se instancia en el main
+        // Se instancia en Global.asax.cs
 
         private static CategoriaHandler instance;
-        DataTable categorias;
+        private DataTable categorias;
 
         private CategoriaHandler()
         {
@@ -30,6 +30,7 @@ namespace TP_Integrador.Clases
 
         static DataTable GetTable()
         {
+            // Luego en una BBDD
             DataTable table = new DataTable();
             table.Columns.Add("Nombre", typeof(string));
             table.Columns.Add("ValorMinimo", typeof(int));
@@ -78,10 +79,10 @@ namespace TP_Integrador.Clases
             return 0; // Si la lista no tiene Rows
         }
 
-        public Categoria recategorizar(int consumo)
+       /* public Categoria recategorizar(int consumo)
         {
             
         }
-
+        */
     }
 }

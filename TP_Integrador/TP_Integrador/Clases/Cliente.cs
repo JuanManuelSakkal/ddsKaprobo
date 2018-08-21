@@ -16,15 +16,27 @@ namespace TP_Integrador.Clases
         public int puntos { get; set; }
         public List<Dispositivo> dispositivos { get; set; }        
 
-        public Cliente(int unId, string unNombreUsuario, string unPassword, string unNombre, string unApellido, string unDomicilio, 
-            string unTD, string unND, string unTel, CategoriaHandler categoriaHandler, List<Dispositivo> unosDisp) : base(unId, unNombreUsuario, unPassword, unNombre,
-            unApellido, unDomicilio)
+
+        // Constructor para cuando se crea un nuevo cliente. Paso como parámetro categoriaHandler para que, cuando se instancia una categoria, éste le pase los valores correspondientes.
+        public Cliente(int unId, string unNombreUsuario, string unPassword, string unNombre, string unApellido, string unDomicilio, string unTD, string unND, string unTel, CategoriaHandler categoriaHandler) : base(unId, unNombreUsuario, unPassword, unNombre, unApellido, unDomicilio)
         {
             tipoDoc = unTD;
             numeroDoc = unND;
             telefono = unTel;
             puntos = 0;
             categoria = new Categoria(categoriaHandler);
+        }
+
+        // Constructor para el ClienteImporter
+        public Cliente(int unId, string unNombreUsuario, string unPassword, string unNombre, string unApellido, string unDomicilio, DateTime fechaDeAlta,
+            string unTD, string unND, string unTel, Categoria unaCategoria, List<Dispositivo> unosDisp) : base(unId, unNombreUsuario, unPassword, unNombre,
+            unApellido, unDomicilio, fechaDeAlta)
+        {
+            tipoDoc = unTD;
+            numeroDoc = unND;
+            telefono = unTel;
+            puntos = 0;
+           // categoria =
             dispositivos = unosDisp;
         }
         
@@ -109,7 +121,10 @@ namespace TP_Integrador.Clases
         */
         // public void AdaptarDispositivoEstandar
 
-       // public void Recategorizar()
-
+       /* public void Recategorizar()
+        {
+            categoria = CategoriaHandler.recategorizar(consumo); // int consumo. Recategorizar devuelve la instancia de una nueva categoria
+        }
+        */
     }
 }

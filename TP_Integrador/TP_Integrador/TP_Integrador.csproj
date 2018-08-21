@@ -209,6 +209,7 @@
     <Compile Include="Clases\ObserverActuador.cs" />
     <Compile Include="Clases\Regla.cs" />
     <Compile Include="Clases\Sensor.cs" />
+    <Compile Include="Clases\UserHandler.cs" />
     <Compile Include="Clases\Usuario.cs" />
     <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\HomeController.cs" />

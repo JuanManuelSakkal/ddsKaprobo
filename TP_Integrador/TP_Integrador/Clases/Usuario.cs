@@ -25,7 +25,17 @@ namespace TP_Integrador.Clases
             domicilio = unDomicilio;
             fechaDeAlta = DateTime.Now;
         }
-       
+
+        public Usuario(int unId, string unNombreUsuario, string unPassword, string unNombre, string unApellido, string unDomicilio, DateTime fechaAlta)
+        {
+            idUsuario = unId;
+            nombreUsuario = unNombreUsuario;
+            password = unPassword;
+            nombre = unNombre;
+            apellido = unApellido;
+            domicilio = unDomicilio;
+            fechaDeAlta = fechaAlta;
+        }
     }
 
    

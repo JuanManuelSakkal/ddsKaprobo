@@ -20,7 +20,7 @@ namespace TP_Integrador
             BundleConfig.RegisterBundles(BundleTable.Bundles);
 
             CategoriaHandler categoriaHandler = CategoriaHandler.getInstance();
-
+            UserHandler userHandler = UserHandler.getInstance();
 
 
 
