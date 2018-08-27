@@ -198,6 +198,7 @@
     <Compile Include="Clases\AhorroEnergia.cs" />
     <Compile Include="Clases\Apagado.cs" />
     <Compile Include="Clases\CategoriaHandler.cs" />
+    <Compile Include="Clases\ConversorDispositivo.cs" />
     <Compile Include="Clases\Dispositivo.cs" />
     <Compile Include="Clases\Categoria.cs" />
     <Compile Include="Clases\Cliente.cs" />
@@ -311,6 +312,9 @@
   <ItemGroup>
     <None Include="packages.config" />
     <Content Include="Scripts\jquery-1.10.2.min.map" />
+  </ItemGroup>
+  <ItemGroup>
+    <Service Include="{82A7F48D-3B50-4B1E-B82E-3ADA8210C358}" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

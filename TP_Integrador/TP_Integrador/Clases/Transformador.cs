@@ -22,7 +22,7 @@ namespace TP_Integrador.Clases
 
             foreach(var usuario in usuarios)
             {
-                energiaSuministrada = usuario.EnergiaConsumidaPorDispositivos();
+               // energiaSuministrada = usuario.EnergiaConsumidaPorDispositivos();
             }
 
             return energiaSuministrada;
