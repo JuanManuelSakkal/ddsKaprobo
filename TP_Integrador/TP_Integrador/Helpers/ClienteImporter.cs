@@ -19,6 +19,7 @@ namespace TP_Integrador.Helpers
         {
             StreamReader rd = new StreamReader(path);
             List<Cliente> listadoClientes = new List<Cliente>();
+            List<Dispositivo> listadoDispositivos = new List<Dispositivo>();
 
             var listUsuarios = JsonConvert.DeserializeObject<List<Cliente>>(rd.ToString());
             foreach (dynamic usuario in listUsuarios)
@@ -27,6 +28,12 @@ namespace TP_Integrador.Helpers
                 var category = JsonConvert.DeserializeObject<Categoria>(usuario.categoria);
                 Categoria unaCategoria = new Categoria(category.idCategoria, category.cargoFijo, category.cargoVariable);
                 // Importar y crear la listaDeDispositivos
+                var dispositivos = JsonConvert.DeserializeObject<List<Dispositivo>>(usuario.dispositivos);
+
+                foreach (dynamic dispositivo in dispositivos)
+                {
+                    listadoDispositivos.Add(new Dispositivo(dispositivo.nombre, dispositivo.kw));
+                }
 
                 Cliente unCliente = new Cliente(usuario.id, usuario.usuario, usuario.password, usuario.nombre, usuario.apellido, usuario.domicilio, usuario.fechaDeAlta, usuario.tipoDoc, usuario.numDoc, usuario.tel, unaCategoria/*, List < Dispositivo > unosDisp*/);
                 listadoClientes.Add(unCliente);

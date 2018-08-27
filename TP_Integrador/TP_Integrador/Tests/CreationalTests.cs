@@ -24,7 +24,7 @@ namespace TP_Integrador.Tests
         }
 
         [Test]
-        public void Crear_Usuario()
+        public void Test_Crear_Usuario()
         {
             var usuario = crearUsuario();
 
@@ -32,7 +32,7 @@ namespace TP_Integrador.Tests
         }
 
         [Test]
-        public void Chequear_nombre_usuario()
+        public void Test_Chequear_nombre_usuario()
         {
             var usuario = crearUsuario();
 
@@ -40,7 +40,7 @@ namespace TP_Integrador.Tests
         }
 
         [Test]
-        public void Crear_Dispositivo_Estandar()
+        public void Test_Crear_Dispositivo_Estandar()
         {
             var dEstandar = crearDispositivoEstandar();
 
