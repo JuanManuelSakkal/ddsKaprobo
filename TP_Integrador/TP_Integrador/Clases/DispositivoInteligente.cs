@@ -10,15 +10,15 @@ namespace TP_Integrador.Clases
         public bool esAdaptado { get; set; }
         public EstadoDispositivo modo { get; set;}
         public Fabricante interfaz { get; set; }
-        public TimeSpan HorasPrendido { get => HorasPrendido; set => HorasPrendido = value; }
+        //public TimeSpan HorasPrendido { get => HorasPrendido; set => HorasPrendido = value; }
         public DateTime HoraPrendido;
 
-        public DispositivoInteligente(string unNombreDispositivo, int unKwPorHora) : base(unNombreDispositivo, unKwPorHora)
+        public DispositivoInteligente(string unNombreDispositivo, double unKwPorHora) : base(unNombreDispositivo, unKwPorHora)
         {
             modo = new Apagado();
             //esAdaptado = adaptado;
             //interfaz = unaInterfaz;
-            HorasPrendido = new TimeSpan(0,0,0);
+            //HorasPrendido = new TimeSpan(0,0,0);
         }
 
         //public void AdaptarDispositivo
@@ -57,7 +57,7 @@ namespace TP_Integrador.Clases
             {
                 modo = new Apagado();
                 // Voy acumulando un TimeSpan para cuando se realice el calculo de consumo
-                HorasPrendido += (DateTime.Now.TimeOfDay - HoraPrendido.TimeOfDay);
+                //HorasPrendido += (DateTime.Now.TimeOfDay - HoraPrendido.TimeOfDay);
             }
 
             return true;

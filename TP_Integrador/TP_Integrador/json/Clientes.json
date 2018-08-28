@@ -1,6 +1,6 @@
 [
 	{
-	  "id":"1",
+	  "idUsuario":"1",
 	  "usuario":"nom",
 	  "password":"askj24nem",
 	  "nombre":"Juan Martin",
@@ -8,10 +8,9 @@
 	  "domicilio":"Medrano y Cordoba",
 	  "fechaDeAlta":"01-01-2000",
 	  "tipoDoc":"DNI",
-	  "numDoc":"35000000",
-	  "tel":"48888888",
-	  "categoria":{"idCategoria":"R1","cargoFijo":"10","cargoVariable":"15"},
-	  "dispositivos":[{"id":"2","3"}]
+	  "numeroDoc":"35000000",
+	  "telefono":"48888888",
+	  "idCategoria":"R1"
 	},
 	{
 	  "id":"2",
@@ -22,10 +21,9 @@
 	  "domicilio":"Mozart 2300",
 	  "fechaDeAlta":"01-01-2001",
 	  "tipoDoc":"DNI",
-	  "numDoc":"35000001",
-	  "tel":"48888886",
-	  "categoria":{"idCategoria":"R2","cargoFijo":"10","cargoVariable":"15"},
-	  "dispositivos":[{"4","5","6"}]
+	  "numeroDoc":"35000001",
+	  "telefono":"48888886",
+	  "idCategoria":"R2"
 	},
 	{
 	  "id":"3",
@@ -36,9 +34,8 @@
 	  "domicilio":"Cordoba 3000",
 	  "fechaDeAlta":"01-01-2002",
 	  "tipoDoc":"DNI",
-	  "numDoc":"35000002",
-	  "tel":"48888889",
-	  "categoria":{"idCategoria":"R3","cargoFijo":"10","cargoVariable":"15"},
-	  "dispositivos":[{"7","8","9"}]
+	  "numeroDoc":"35000002",
+	  "telefono":"48888889",
+	  "idCategoria":"R3"
 	}
 ]

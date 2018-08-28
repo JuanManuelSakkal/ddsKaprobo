@@ -16,27 +16,31 @@ namespace TP_Integrador.Clases
         public int puntos { get; set; }
         public List<Dispositivo> dispositivos { get; set; }        
 
+        public Cliente()
+        {
+
+        }
 
         // Constructor para cuando se crea un nuevo cliente. Paso como parámetro categoriaHandler para que, cuando se instancia una categoria, éste le pase los valores correspondientes.
-        public Cliente(int unId, string unNombreUsuario, string unPassword, string unNombre, string unApellido, string unDomicilio, string unTD, string unND, string unTel, CategoriaHandler categoriaHandler) : base(unId, unNombreUsuario, unPassword, unNombre, unApellido, unDomicilio)
+        public Cliente(int unId, string unNombreUsuario, string unPassword, string unNombre, string unApellido, string unDomicilio, string unTD, string unND, string unTel/*, CategoriaHandler categoriaHandler*/) : base(unId, unNombreUsuario, unPassword, unNombre, unApellido, unDomicilio)
         {
             tipoDoc = unTD;
             numeroDoc = unND;
             telefono = unTel;
             puntos = 0;
-            categoria = new Categoria(categoriaHandler);
+            //categoria = new Categoria(categoriaHandler);
         }
 
         // Constructor para el ClienteImporter
         public Cliente(int unId, string unNombreUsuario, string unPassword, string unNombre, string unApellido, string unDomicilio, DateTime fechaDeAlta,
-            string unTD, string unND, string unTel, Categoria unaCategoria/*, List<Dispositivo> unosDisp*/) : base(unId, unNombreUsuario, unPassword, unNombre,
+            string unTD, string unND, string unTel, string idCategoria /*, List<Dispositivo> unosDisp*/) : base(unId, unNombreUsuario, unPassword, unNombre,
             unApellido, unDomicilio, fechaDeAlta)
         {
             tipoDoc = unTD;
             numeroDoc = unND;
             telefono = unTel;
             puntos = 0;
-            categoria = unaCategoria;
+            categoria = CategoriaHandler.GetCategoria(idCategoria);
            // dispositivos = unosDisp;
         }
         

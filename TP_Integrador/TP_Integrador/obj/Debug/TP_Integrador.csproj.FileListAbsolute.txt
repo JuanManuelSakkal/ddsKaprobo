@@ -415,3 +415,6 @@ C:\Users\agnme\ddsKaprobo\TP_Integrador\TP_Integrador\obj\Debug\TP_Integrador.cs
 C:\Users\agnme\ddsKaprobo\TP_Integrador\TP_Integrador\obj\Debug\TP_Integrador.csproj.CopyComplete
 C:\Users\agnme\ddsKaprobo\TP_Integrador\TP_Integrador\obj\Debug\TP_Integrador.dll
 C:\Users\agnme\ddsKaprobo\TP_Integrador\TP_Integrador\obj\Debug\TP_Integrador.pdb
+C:\Users\sebik\Desktop\UTN\3er Año\Diseño de Sistemas\2018\TPs\ddsKaprobo\TP_Integrador\TP_Integrador\bin\nunit.framework.dll
+C:\Users\sebik\Desktop\UTN\3er Año\Diseño de Sistemas\2018\TPs\ddsKaprobo\TP_Integrador\TP_Integrador\bin\nunit.framework.pdb
+C:\Users\sebik\Desktop\UTN\3er Año\Diseño de Sistemas\2018\TPs\ddsKaprobo\TP_Integrador\TP_Integrador\bin\nunit.framework.xml

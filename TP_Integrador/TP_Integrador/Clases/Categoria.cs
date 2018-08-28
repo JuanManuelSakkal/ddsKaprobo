@@ -2,29 +2,29 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
+using Newtonsoft.Json;
 
 namespace TP_Integrador.Clases
 {
     public class Categoria
     {
-        string categoria { get; set; }
-        public float cargoFijo { get; set; }
-        public float cargoVariable { get; set; }
-        private CategoriaHandler categoryHandler;
+        public string idCategoria { get; set; }
+        public double cargoFijo { get; set; }
+        public double cargoVariable { get; set; }
 
-        public Categoria(CategoriaHandler categoriaHandler)
+        public Categoria(string idCate)
         {
             // Suponiendo que cuando se instancia un nuevo cliente, con su categoria, arranca en R1
 
-            categoria = "R1";
-            cargoFijo = categoriaHandler.getCargoFijoPorCategoria(categoria);
-            cargoVariable = categoriaHandler.getCargoVariablePorCategoria(categoria);
-            categoryHandler = categoriaHandler;
+            idCategoria = idCategoria;
+            cargoFijo = CategoriaHandler.GetCargoFijoPorCategoria(idCategoria);
+            cargoVariable = CategoriaHandler.GetCargoVariablePorCategoria(idCategoria);
         }
 
-        public Categoria(string nombre, int unCargoFijo, int unCargoVariable)
+        [JsonConstructor]
+        public Categoria(string idCate, double unCargoFijo, double unCargoVariable)
         {
-            categoria = nombre;
+            idCategoria = idCate;
             cargoFijo = unCargoFijo;
             cargoVariable = unCargoVariable;
         }

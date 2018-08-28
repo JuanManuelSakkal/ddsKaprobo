@@ -5,12 +5,12 @@ using System.Web;
 
 namespace TP_Integrador.Clases
 {
-    public class Dispositivo
+    public abstract class Dispositivo
     {
         public string nombreDispositivo{ get; set; }
-        public int kwPorHora { get; set; }
+        public double kwPorHora { get; set; }
 
-        public Dispositivo(string unNombreDispositivo, int unKwPorHora)
+        public Dispositivo(string unNombreDispositivo, double unKwPorHora)
         {
             nombreDispositivo = unNombreDispositivo;
             kwPorHora = unKwPorHora;

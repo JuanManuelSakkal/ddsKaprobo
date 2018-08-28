@@ -20,7 +20,7 @@ namespace TP_Integrador
             RouteConfig.RegisterRoutes(RouteTable.Routes);
             BundleConfig.RegisterBundles(BundleTable.Bundles);
 
-            CategoriaHandler categoriaHandler = CategoriaHandler.getInstance();
+            //CategoriaHandler categoriaHandler = CategoriaHandler.getInstance();
             UserHandler userHandler = UserHandler.GetInstance();
 
             Logger log = new Logger();

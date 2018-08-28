@@ -1,0 +1,19 @@
+{
+	"vars":[1,1,1],
+	"restrictions":[
+		{"values":[440640,0.06,0.875,0.18],
+		"operator":"<="},
+		{"values":[90,0,0,1],
+		"operator":">="},
+		{"values":[370,0,0,1],
+		"operator":"<="},
+		{"values":[6,0,1,0],
+		"operator":">="},
+		{"values":[30,0,1,0],
+		"operator":"<="},
+		{"values":[120,1,0,0],
+		"operator":">="},
+		{"values":[360,1,0,0],
+		"operator":"<="}
+	]
+}

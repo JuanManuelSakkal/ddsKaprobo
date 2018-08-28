@@ -5,6 +5,7 @@ using System.Web;
 using System.IO;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Linq;
+using TP_Integrador.Helpers;
 
 namespace TP_Integrador.Helpers
 {
@@ -16,26 +17,19 @@ namespace TP_Integrador.Helpers
 
         public Logger()
         {
-            logger = File.AppendText("C:/Users/agnme/ddsKaprobo/TP_Integrador/TP_Integrador/logger.txt");
+            logger = File.AppendText("C:/Users/sebik/Desktop/UTN/3er Año/Diseño de Sistemas/2018/TPs/ddsKaprobo/TP_Integrador/TP_Integrador/logger.txt");
         }
 
         public Logger(string locationString)
         {
-            path = server.MapPath(@locationString);
+            path = locationString;
            // logger = File.AppendText("logger.txt");
         }
 
         public void Log(string eventToLog)
         {
-            StreamWriter wr = new StreamWriter(path,true);
-            JObject jsonObject = new JObject();
-            jsonObject.Add("TimeStamp", DateTime.Now);
-            jsonObject.Add("Event", eventToLog);
-            using (JsonTextWriter writer = new JsonTextWriter(wr))
-            {
-                jsonObject.WriteTo(writer);
-            }
-            wr.Close();
+            //JsonAdapter json = new JsonAdapter(path, false);
+            //json.Write(eventToLog);
         }
 
         // Para loguear las operaciones
