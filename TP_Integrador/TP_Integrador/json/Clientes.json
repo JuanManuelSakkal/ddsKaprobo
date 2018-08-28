@@ -8,16 +8,9 @@
 	  "domicilio":"Medrano y Cordoba",
 	  "fechaDeAlta":"01-01-2000",
 	  "tipoDoc":"DNI",
-<<<<<<< HEAD
 	  "numeroDoc":"35000000",
 	  "telefono":"48888888",
 	  "idCategoria":"R1"
-=======
-	  "numDoc":"35000000",
-	  "tel":"48888888",
-	  "categoria":{"idCategoria":"R1","cargoFijo":"10","cargoVariable":"15"},
-	  "dispositivos":[{"nombre":"Philips","kw":"500"},{"nombre":"Whirpool","kw":"500"}]
->>>>>>> 400ca494c6f411ef5a34be962b3ecdfdd1c1a637
 	},
 	{
 	  "id":"2",
@@ -28,16 +21,9 @@
 	  "domicilio":"Mozart 2300",
 	  "fechaDeAlta":"01-01-2001",
 	  "tipoDoc":"DNI",
-<<<<<<< HEAD
 	  "numeroDoc":"35000001",
 	  "telefono":"48888886",
 	  "idCategoria":"R2"
-=======
-	  "numDoc":"35000001",
-	  "tel":"48888886",
-	  "categoria":{"idCategoria":"R2","cargoFijo":"10","cargoVariable":"15"},
-	  "dispositivos":[{"nombre":".Net","kw":"600"}]
->>>>>>> 400ca494c6f411ef5a34be962b3ecdfdd1c1a637
 	},
 	{
 	  "id":"3",
@@ -48,15 +34,8 @@
 	  "domicilio":"Cordoba 3000",
 	  "fechaDeAlta":"01-01-2002",
 	  "tipoDoc":"DNI",
-<<<<<<< HEAD
 	  "numeroDoc":"35000002",
 	  "telefono":"48888889",
 	  "idCategoria":"R3"
-=======
-	  "numDoc":"35000002",
-	  "tel":"48888889",
-	  "categoria":{"idCategoria":"R3","cargoFijo":"10","cargoVariable":"15"},
-	  "dispositivos":[{"nombre":".Javita","kw":"1400"}, {"nombre":"GoPro","kw":"200"}]
->>>>>>> 400ca494c6f411ef5a34be962b3ecdfdd1c1a637
 	}
 ]

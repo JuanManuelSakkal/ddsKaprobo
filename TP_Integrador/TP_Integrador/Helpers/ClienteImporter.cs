@@ -16,6 +16,7 @@ namespace TP_Integrador.Helpers
 
         public static List<Cliente> ImportarUsuarios()
         {
+            System.Diagnostics.Debug.WriteLine(json.ReadAll());
             List<Cliente> listClientes = JsonConvert.DeserializeObject<List<Cliente>>(json.ReadAll());
             return listClientes;
         }
