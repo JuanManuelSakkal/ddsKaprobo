@@ -116,6 +116,18 @@ namespace TP_Integrador.Clases
         {
             dispositivos.Add(new DispositivoEstandar(unNombreDispositivo, unKwPorHora));
         }
+
+        public int EnergiaConsumidaPorDispositivos()
+        {
+            int energia = 0;
+
+            foreach(var dispositivo in dispositivos)
+            {
+                energia += dispositivo.kwPorHora;
+            }
+
+            return energia;
+        }
         /*
         public void AgregarDispositivoInteligente()
         {
@@ -125,10 +137,10 @@ namespace TP_Integrador.Clases
         */
         // public void AdaptarDispositivoEstandar
 
-       /* public void Recategorizar()
-        {
-            categoria = CategoriaHandler.recategorizar(consumo); // int consumo. Recategorizar devuelve la instancia de una nueva categoria
-        }
-        */
+        /* public void Recategorizar()
+         {
+             categoria = CategoriaHandler.recategorizar(consumo); // int consumo. Recategorizar devuelve la instancia de una nueva categoria
+         }
+         */
     }
 }
