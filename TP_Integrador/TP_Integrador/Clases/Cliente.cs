@@ -117,9 +117,9 @@ namespace TP_Integrador.Clases
             dispositivos.Add(new DispositivoEstandar(unNombreDispositivo, unKwPorHora));
         }
 
-        public int EnergiaConsumidaPorDispositivos()
+        public double EnergiaConsumidaPorDispositivos()
         {
-            int energia = 0;
+            double energia = 0;
 
             foreach(var dispositivo in dispositivos)
             {
