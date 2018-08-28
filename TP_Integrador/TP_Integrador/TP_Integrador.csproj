@@ -229,6 +229,8 @@
     <Compile Include="Helpers\Logger.cs" />
     <Compile Include="Clases\SubjectObserverRegla.cs" />
     <Compile Include="Clases\SubjectSensor.cs" />
+    <Compile Include="Helpers\TransformadorImporter.cs" />
+    <Compile Include="Helpers\ZonaGeograficaImporter.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\IdentityModels.cs" />
     <Compile Include="Models\ManageViewModels.cs" />

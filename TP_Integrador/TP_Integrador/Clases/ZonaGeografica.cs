@@ -7,11 +7,15 @@ namespace TP_Integrador.Clases
 {
     public class ZonaGeografica
     {
+        private string nombreZona;
+        private int radio;
         public List<Transformador> transformadores;
 
 
-        public ZonaGeografica()
+        public ZonaGeografica(string unNombre, int unRadio)
         {
+            nombreZona = unNombre;
+            radio = unRadio;
             transformadores = new List<Transformador>();
         }
 
@@ -19,7 +23,7 @@ namespace TP_Integrador.Clases
         {
             int consumo = 0;
 
-            foreach(var transformador in transformadores)
+            foreach (var transformador in transformadores)
             {
                 consumo += transformador.EnergiaSuministrada();
             }

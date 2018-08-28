@@ -7,22 +7,24 @@ namespace TP_Integrador.Clases
 {
     public class Transformador
     {
+        public int id;
         public string domicilio { get; set; }
-        public List<Usuario> usuarios;
+        public List<Cliente> clientes;
 
-        public Transformador(string unDomicilio)
+        public Transformador(int unId, string unDomicilio)
         {
+            id = unId;
             domicilio = unDomicilio;
-            usuarios = new List<Usuario>();
+            clientes = new List<Cliente>();
         }
 
         public int EnergiaSuministrada()
         {
             int energiaSuministrada = 0;
 
-            foreach(var usuario in usuarios)
+            foreach (var cliente in clientes)
             {
-               // energiaSuministrada = usuario.EnergiaConsumidaPorDispositivos();
+                // energiaSuministrada = cliente.EnergiaConsumidaPorDispositivos();
             }
 
             return energiaSuministrada;

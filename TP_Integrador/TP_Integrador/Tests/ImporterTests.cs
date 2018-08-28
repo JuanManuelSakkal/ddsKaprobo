@@ -20,5 +20,15 @@ namespace TP_Integrador.Tests
            // ClienteImporter importer = new ClienteImporter();
           //  Assert.AreEqual(3, importer.getClientes().Count);
         }
+
+        [Test]
+
+        public void Test_Levantar_Transformadores()
+        {
+            TransformadorImporter importer = new TransformadorImporter();
+            List<Transformador> listaTransformadores = importer.ImportarTransformadores();
+
+            Assert.True(listaTransformadores.Count() == 2);
+        }
     }
 }
