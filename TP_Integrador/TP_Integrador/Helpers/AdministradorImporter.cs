@@ -11,21 +11,22 @@ namespace TP_Integrador.Helpers
 {
     public static class AdministradorImporter
     {
-        static HttpServerUtility server = HttpContext.Current.Server;
-        static string path = server.MapPath(@"~/json/Administradores.json");
+        private static string path = (@"/json/Administradores.json");
+        private static JsonAdapter json = new JsonAdapter(path);
 
         public static List<Administrador> ImportarUsuarios()
         {
-            StreamReader rd = new StreamReader(path);
             List<Administrador> listadoAdministradores = new List<Administrador>();
 
-            var listUsuarios = JsonConvert.DeserializeObject<List<Usuario>>(rd.ToString());
-            foreach (dynamic usuario in listUsuarios)
+            List<Administrador> listUsuarios = JsonConvert.DeserializeObject<List<Administrador>>(json.ReadAll());
+            System.Diagnostics.Debug.WriteLine(json.ReadAll());
+            foreach (Administrador usuario in listUsuarios)
             {
-                Administrador unAdministrador = new Administrador(usuario.id, usuario.nombre, usuario.password, usuario.nombre, usuario.apellido, usuario.domicilio, usuario.fechaDeAlta);
+                Administrador unAdministrador = new Administrador(usuario.idUsuario, usuario.nombre, usuario.password, usuario.nombre, usuario.apellido, usuario.domicilio, usuario.fechaDeAlta);
+
                 listadoAdministradores.Add(unAdministrador);
             }
-            rd.Close();
+
             return listadoAdministradores;
         }
     }

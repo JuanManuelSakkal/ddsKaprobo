@@ -1,24 +1,26 @@
-{
-  "id":"1",
-  "usuario":"asd",
-  "password":"ikf5kgdd",
-  "nombre":"Lionel",
-  "apellido":"Messi",
-  "domicilio":"Barcelona 1",
-  "fechaDeAlta":"01-02-2000",
-  "tipoDoc":"DNI",
-  "numDoc":"35000009",
-  "tel":"48888881"
-}
-{
-  "id":"2",
-  "usuario":"dsa",
-  "password":"lkjhgd65as",
-  "nombre":"Cristiano",
-  "apellido":"Ronaldo",
-  "domicilio":"Madrid 2",
-  "fechaDeAlta":"01-03-2000",
-  "tipoDoc":"DNI",
-  "numDoc":"35000008",
-  "tel":"48888882"
-}
+[
+	{
+	  "idUsuario":"4",
+	  "usuario":"asd",
+	  "password":"ikf5kgdd",
+	  "nombre":"Lionel",
+	  "apellido":"Messi",
+	  "domicilio":"Barcelona 1",
+	  "fechaDeAlta":"01-02-2000",
+	  "tipoDoc":"DNI",
+	  "numeroDoc":"35000009",
+	  "telefono":"48888881"
+	},
+	{
+	  "idUsuario":"5",
+	  "usuario":"dsa",
+	  "password":"lkjhgd65as",
+	  "nombre":"Cristiano",
+	  "apellido":"Ronaldo",
+	  "domicilio":"Madrid 2",
+	  "fechaDeAlta":"01-03-2000",
+	  "tipoDoc":"DNI",
+	  "numeroDoc":"35000008",
+	  "telefono":"48888882"
+	}
+]

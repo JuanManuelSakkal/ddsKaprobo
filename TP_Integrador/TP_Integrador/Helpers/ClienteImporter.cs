@@ -9,6 +9,7 @@ using TP_Integrador.Clases;
 
 namespace TP_Integrador.Helpers
 {
+    //PREGUNTAR COMPARACION ENTRE ESTA MANERA Y LA DE ADMINISTRADOR
     public static class ClienteImporter
     {
         private static string path = (@"/json/Clientes.json");
@@ -16,7 +17,6 @@ namespace TP_Integrador.Helpers
 
         public static List<Cliente> ImportarUsuarios()
         {
-            System.Diagnostics.Debug.WriteLine(json.ReadAll());
             List<Cliente> listClientes = JsonConvert.DeserializeObject<List<Cliente>>(json.ReadAll());
             return listClientes;
         }

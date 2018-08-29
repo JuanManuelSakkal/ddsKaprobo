@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
+using Newtonsoft.Json;
 
 namespace TP_Integrador.Clases
 {
@@ -16,6 +17,7 @@ namespace TP_Integrador.Clases
         }
 
         // Constructor para el importerAdministrador
+        [JsonConstructor]
         public Administrador(int unId, string unNombreUsuario, string unPassword, string unNombre,
             string unApellido, string unDomicilio, DateTime fechaDeAlta) : base(unId, unNombreUsuario, unPassword, unNombre,
             unApellido, unDomicilio, fechaDeAlta)
