@@ -36,7 +36,7 @@ namespace TP_Integrador.Tests
         {
             var usuario = crearUsuario();
 
-            Assert.AreEqual("robertocapo", usuario.nombreUsuario);
+            Assert.AreEqual("robertocapo", usuario.NombreUsuario);
         }
 
         [Test]

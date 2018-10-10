@@ -5,7 +5,9 @@ using System.Web;
 using System.Web.Mvc;
 using TP_Integrador.Clases;
 using TP_Integrador.Helpers;
+using TP_Integrador.Data;
 using System.Web.Caching;
+using System.Data.Entity;
 
 namespace TP_Integrador.Controllers
 {
@@ -30,15 +32,15 @@ namespace TP_Integrador.Controllers
 
             //Importacion de usuarios - VER COMO PASAR A VISTA!!!!
             List<Cliente> clientes = ClienteImporter.ImportarUsuarios();
-            ViewData["Clientes"] = clientes[0].idUsuario + clientes[0].apellido + clientes[0].nombre + clientes[0].nombreUsuario + clientes[0].password + clientes[0].tipoDoc + clientes[0].numeroDoc + clientes[0].telefono;
+            ViewData["Clientes"] = clientes[0].UsuarioID + clientes[0].Apellido + clientes[0].Nombre + clientes[0].NombreUsuario + clientes[0].Password + clientes[0].TipoDoc + clientes[0].NumeroDoc + clientes[0].Telefono;
 
             //Importacion de administradores
             List<Administrador> administradores = AdministradorImporter.ImportarUsuarios();
-            ViewData["Administradores"] = administradores[0].apellido;
+            ViewData["Administradores"] = administradores[0].Apellido;
 
             //Importacion de dispositivos
             List<DispositivoInteligente> dispositivos = DispositivoImporter.ImportarDispositivosInteligentes();
-            ViewData["Dispositivos"] = dispositivos[0].nombreDispositivo + dispositivos[0].kwPorHora;
+            ViewData["Dispositivos"] = dispositivos[0].NombreDispositivo + dispositivos[0].KwPorHora;
 
             //PRUEBA SIMPLEX
             List<DispositivoInteligente> dispositivosInteligentes = DispositivoInteligenteHandler.GetDispositivoInteligentes();
@@ -46,6 +48,55 @@ namespace TP_Integrador.Controllers
             unaConsultaSimplex.AgregarRestriccion(440640, null, "<=");
             unaConsultaSimplex.AgregarRestriccion(90, dispositivosInteligentes[0], ">=");
             ViewData["ResultadoSimplex"] = unaConsultaSimplex.Ejecutar();
+
+            //Prueba Entity Framework
+            using (var db = new ContextoDB())
+            {
+                Categoria R1 = new Categoria("R1", 18.76, 0.644);
+                db.Categorias.Add(R1);
+
+                DispositivoInteligente aire3500 = new DispositivoInteligente("Aire 3500", 1.613, new FabricanteDePrueba());
+                DispositivoInteligente aire2200 = new DispositivoInteligente("Aire 2200", 1.013, new FabricanteDePrueba());
+                DispositivoInteligente tvLed40 = new DispositivoInteligente("TV Led 40", 0.08, new FabricanteDePrueba());
+
+                db.Dispositivos.Add(aire2200);
+                db.Dispositivos.Add(aire3500);
+                db.Dispositivos.Add(tvLed40);
+
+                db.SaveChanges();
+
+                //Creo un nuevo cliente
+                Cliente unCliente = new Cliente();
+                unCliente.UsuarioID = 1;
+                unCliente.NombreUsuario = "sebikap";
+                unCliente.Password = "LaContra1!";
+                unCliente.Nombre = "Sebastian";
+                unCliente.Apellido = "Kaplanski";
+                unCliente.Domicilio = "Av Medrano 851";
+                unCliente.FechaDeAlta = DateTime.Now;
+                unCliente.TipoDoc = "DNI";
+                unCliente.TipoDoc = "12345678";
+                unCliente.Telefono = "4888-8888";
+                unCliente.Categoria = CategoriaHandler.GetCategoriaDB("R1");
+                unCliente.Puntos = 0;
+                unCliente.Dispositivos.Add(aire2200);
+                unCliente.Dispositivos.Add(tvLed40);
+
+                System.Diagnostics.Debug.WriteLine("LCDTMAB AGREGO");
+                db.Clientes.Add(unCliente);
+
+                System.Diagnostics.Debug.WriteLine("LCDTMAB GUARDO");
+                db.SaveChanges();
+
+                var query = from b in db.Clientes where b.Apellido == "Kaplanski"
+                            orderby b.Apellido
+                            select b;
+
+                foreach (var item in query)
+                {
+                    ViewData["ClienteDePrueba"] = item.Apellido + " " + item.Nombre;
+                }
+            }
 
             return View();
         }

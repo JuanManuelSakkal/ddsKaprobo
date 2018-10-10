@@ -22,7 +22,7 @@ namespace TP_Integrador.Helpers
             System.Diagnostics.Debug.WriteLine(json.ReadAll());
             foreach (Administrador usuario in listUsuarios)
             {
-                Administrador unAdministrador = new Administrador(usuario.idUsuario, usuario.nombre, usuario.password, usuario.nombre, usuario.apellido, usuario.domicilio, usuario.fechaDeAlta);
+                Administrador unAdministrador = new Administrador(usuario.UsuarioID, usuario.Nombre, usuario.Password, usuario.Nombre, usuario.Apellido, usuario.Domicilio, usuario.FechaDeAlta);
 
                 listadoAdministradores.Add(unAdministrador);
             }

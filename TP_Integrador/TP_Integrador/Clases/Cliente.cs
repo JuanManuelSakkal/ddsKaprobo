@@ -2,32 +2,36 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
+using System.ComponentModel.DataAnnotations.Schema;
+using System.ComponentModel.DataAnnotations;
 
 
 namespace TP_Integrador.Clases
 {
     public class Cliente : Usuario
-
     {
-        public string tipoDoc { get; set; }
-        public string numeroDoc { get; set; }
-        public string telefono { get; set; }
-        public Categoria categoria { get; set; }
-        public int puntos { get; set; }
-        public List<Dispositivo> dispositivos { get; set; }        
+        public string TipoDoc { get; set; }
+        public string NumeroDoc { get; set; }
+        public string Telefono { get; set; }
+        public int CategoriaID { get; set; }        
+        public int Puntos { get; set; }
+        public List<Dispositivo> Dispositivos { get; set; }
+
+        [ForeignKey("CategoriaID")]
+        public Categoria Categoria { get; set; }
 
         public Cliente()
         {
-
+            Dispositivos = new List<Dispositivo>();
         }
 
         // Constructor para cuando se crea un nuevo cliente. Paso como parámetro categoriaHandler para que, cuando se instancia una categoria, éste le pase los valores correspondientes.
         public Cliente(int unId, string unNombreUsuario, string unPassword, string unNombre, string unApellido, string unDomicilio, string unTD, string unND, string unTel/*, CategoriaHandler categoriaHandler*/) : base(unId, unNombreUsuario, unPassword, unNombre, unApellido, unDomicilio)
         {
-            tipoDoc = unTD;
-            numeroDoc = unND;
-            telefono = unTel;
-            puntos = 0;
+            TipoDoc = unTD;
+            NumeroDoc = unND;
+            Telefono = unTel;
+            Puntos = 0;
             //categoria = new Categoria(categoriaHandler);
         }
 
@@ -36,18 +40,18 @@ namespace TP_Integrador.Clases
             string unTD, string unND, string unTel, string idCategoria /*, List<Dispositivo> unosDisp*/) : base(unId, unNombreUsuario, unPassword, unNombre,
             unApellido, unDomicilio, fechaDeAlta)
         {
-            tipoDoc = unTD;
-            numeroDoc = unND;
-            telefono = unTel;
-            puntos = 0;
-            categoria = CategoriaHandler.GetCategoria(idCategoria);
+            TipoDoc = unTD;
+            NumeroDoc = unND;
+            Telefono = unTel;
+            Puntos = 0;
+            Categoria = CategoriaHandler.GetCategoria(idCategoria);
            // dispositivos = unosDisp;
         }
         
 
         public int CantidadDispositivos()
         {
-            return this.dispositivos.Count();
+            return this.Dispositivos.Count();
         }
         
         public bool HayDispositivoEncendido()
@@ -56,9 +60,9 @@ namespace TP_Integrador.Clases
             int cantDisp = this.CantidadDispositivos();
             for (int i = 0; i < cantDisp; i++)
             {
-                if (dispositivos[i].GetType().Equals(typeof(DispositivoInteligente)))
+                if (Dispositivos[i].GetType().Equals(typeof(DispositivoInteligente)))
                 {
-                    if (((DispositivoInteligente)dispositivos[i]).EstaEncendido())
+                    if (((DispositivoInteligente)Dispositivos[i]).EstaEncendido())
                     {
                         hayEncendido = true;
                         break;
@@ -75,9 +79,9 @@ namespace TP_Integrador.Clases
             int cantDisp = this.CantidadDispositivos();
             for (int i = 0; i < cantDisp; i++)
             {
-                if (dispositivos[i].GetType().Equals(typeof(DispositivoInteligente)))
+                if (Dispositivos[i].GetType().Equals(typeof(DispositivoInteligente)))
                 {
-                    if (((DispositivoInteligente)dispositivos[i]).EstaEncendido())
+                    if (((DispositivoInteligente)Dispositivos[i]).EstaEncendido())
                     {
                         cantEncendidos++;
 
@@ -94,9 +98,9 @@ namespace TP_Integrador.Clases
             int cantDisp = this.CantidadDispositivos();
             for (int i = 0; i < cantDisp; i++)
             {
-                if (dispositivos[i].GetType().Equals(typeof(DispositivoInteligente)))
+                if (Dispositivos[i].GetType().Equals(typeof(DispositivoInteligente)))
                 {
-                    if (((DispositivoInteligente)dispositivos[i]).EstaApagado())
+                    if (((DispositivoInteligente)Dispositivos[i]).EstaApagado())
                     {
                         cantApagados++;
 
@@ -114,16 +118,16 @@ namespace TP_Integrador.Clases
 
         public void AgregarDispositivoEstandar(string unNombreDispositivo, int unKwPorHora)
         {
-            dispositivos.Add(new DispositivoEstandar(unNombreDispositivo, unKwPorHora));
+            Dispositivos.Add(new DispositivoEstandar(unNombreDispositivo, unKwPorHora));
         }
 
         public double EnergiaConsumidaPorDispositivos()
         {
             double energia = 0;
 
-            foreach(var dispositivo in dispositivos)
+            foreach(var dispositivo in Dispositivos)
             {
-                energia += dispositivo.kwPorHora;
+                energia += dispositivo.KwPorHora;
             }
 
             return energia;
@@ -131,7 +135,7 @@ namespace TP_Integrador.Clases
         /*
         public void AgregarDispositivoInteligente()
         {
-            dispositivos.Add(new DispositivoInteligente(string unNombreDispositivo, int unKwPorHora));
+            Dispositivos.Add(new DispositivoInteligente(string unNombreDispositivo, int unKwPorHora));
 
         }
         */
@@ -139,7 +143,7 @@ namespace TP_Integrador.Clases
 
         /* public void Recategorizar()
          {
-             categoria = CategoriaHandler.recategorizar(consumo); // int consumo. Recategorizar devuelve la instancia de una nueva categoria
+             Categoria = CategoriaHandler.recategorizar(consumo); // int consumo. Recategorizar devuelve la instancia de una nueva categoria
          }
          */
     }

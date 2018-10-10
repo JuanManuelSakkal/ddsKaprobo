@@ -20,9 +20,9 @@ namespace TP_Integrador.Clases
 
         public void Convertir(DispositivoEstandar unDispositivo, Cliente unCliente)
         {
-            DispositivoInteligente dispositivoInteligente = new DispositivoInteligente(unDispositivo.nombreDispositivo, unDispositivo.kwPorHora);
-            unCliente.dispositivos.Remove(unDispositivo);
-            unCliente.dispositivos.Add(dispositivoInteligente);
+            DispositivoInteligente dispositivoInteligente = new DispositivoInteligente(unDispositivo.NombreDispositivo, unDispositivo.KwPorHora, new FabricanteDePrueba());
+            unCliente.Dispositivos.Remove(unDispositivo);
+            unCliente.Dispositivos.Add(dispositivoInteligente);
 
             return;
         }

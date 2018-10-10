@@ -24,7 +24,7 @@ namespace TP_Integrador.Helpers
 
             foreach (dynamic transformador in transformadores)
             {
-                listaTransformadores.Add(new Transformador(transformador.id,transformador.domicilio));
+                listaTransformadores.Add(new Transformador(transformador.Domicilio));
             }
 
             return listaTransformadores;

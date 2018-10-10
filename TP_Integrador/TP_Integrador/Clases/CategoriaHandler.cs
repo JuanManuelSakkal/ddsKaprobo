@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Data;
+using TP_Integrador.Data;
 
 namespace TP_Integrador.Clases
 {
@@ -42,9 +43,24 @@ namespace TP_Integrador.Clases
         {
             foreach (Categoria cat in GetCategorias())
             {
-                if (cat.idCategoria == categoria)
+                if (cat.Nombre == categoria)
                 {
                     return cat;
+                }
+            }
+            return null;
+        }
+
+        public static Categoria GetCategoriaDB(string categoria)
+        {
+            using (var db = new ContextoDB())
+            {
+                foreach (Categoria cate in db.Categorias)
+                {
+                    if (cate.Nombre == categoria)
+                    {
+                        return cate;
+                    }
                 }
             }
             return null;
@@ -89,7 +105,7 @@ namespace TP_Integrador.Clases
 
             return 0; // Si la lista no tiene Rows*/
 
-            return GetCategoria(categoria).cargoFijo;
+            return GetCategoria(categoria).CargoFijo;
         }
 
         public static double GetCargoVariablePorCategoria(string categoria)
@@ -104,7 +120,7 @@ namespace TP_Integrador.Clases
             }
 
             return 0; // Si la lista no tiene Rows*/
-            return GetCategoria(categoria).cargoVariable;
+            return GetCategoria(categoria).CargoVariable;
         }
 
        /* public Categoria recategorizar(int consumo)

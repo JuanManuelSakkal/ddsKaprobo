@@ -2,22 +2,30 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
+using System.ComponentModel.DataAnnotations.Schema;
+using System.ComponentModel.DataAnnotations;
 
 namespace TP_Integrador.Clases
 {
     public class DispositivoInteligente : Dispositivo
     {
-        public bool esAdaptado { get; set; }
-        public EstadoDispositivo modo { get; set;}
-        public Fabricante interfaz { get; set; }
+        public bool EsAdaptado { get; set; }
+        public int ModoID { get; set;}
+        public int InterfazID { get; set; }
         //public TimeSpan HorasPrendido { get => HorasPrendido; set => HorasPrendido = value; }
         public DateTime HoraPrendido;
 
-        public DispositivoInteligente(string unNombreDispositivo, double unKwPorHora) : base(unNombreDispositivo, unKwPorHora)
+        [ForeignKey("ModoID")]
+        public EstadoDispositivo Modo { get; set; }
+
+        [ForeignKey("InterfazID")]
+        public Fabricante Interfaz { get; set; }
+
+        public DispositivoInteligente(string unNombreDispositivo, double unKwPorHora, Fabricante unaInterfaz) : base(unNombreDispositivo, unKwPorHora)
         {
-            modo = new Apagado();
+            Modo = new Apagado();
             //esAdaptado = adaptado;
-            //interfaz = unaInterfaz;
+            Interfaz = unaInterfaz;
             //HorasPrendido = new TimeSpan(0,0,0);
         }
 
@@ -27,24 +35,24 @@ namespace TP_Integrador.Clases
 
         public bool EstaEncendido()
         {
-            return modo.EstaEncendido();
+            return Modo.EstaEncendido();
         }
 
         public bool EstaApagado()
         {
-            return modo.EstaApagado();
+            return Modo.EstaApagado();
         }
 
         public bool EstaEnModoAhorro() // Duda
         {
-            return modo.GetType().Equals(typeof(AhorroEnergia));
+            return Modo.GetType().Equals(typeof(AhorroEnergia));
         }
 
         public bool Encender()
         {
-            if(modo.GetType() != typeof(Encendido))
+            if(Modo.GetType() != typeof(Encendido))
             {
-                modo = new Encendido();
+                Modo = new Encendido();
                 HoraPrendido = DateTime.Now;
             }
 
@@ -53,9 +61,9 @@ namespace TP_Integrador.Clases
 
         public bool Apagar()
         {
-            if(modo.GetType() != typeof(Apagado))
+            if(Modo.GetType() != typeof(Apagado))
             {
-                modo = new Apagado();
+                Modo = new Apagado();
                 // Voy acumulando un TimeSpan para cuando se realice el calculo de consumo
                 //HorasPrendido += (DateTime.Now.TimeOfDay - HoraPrendido.TimeOfDay);
             }
@@ -65,7 +73,7 @@ namespace TP_Integrador.Clases
 
         public bool PasarAAhorroDeEnergia()
         {
-            modo = new AhorroEnergia();
+            Modo = new AhorroEnergia();
             //bool respuesta = modo.correr o algo asi
             return true;
         }

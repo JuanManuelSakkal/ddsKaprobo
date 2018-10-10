@@ -15,14 +15,14 @@ namespace TP_Integrador.Helpers
         // Obtengo la ruta fisica a partir de la ruta virtual 
         string path = HttpContext.Current.Server.MapPath(@"~/json/ZonasGeograficas.json");
 
-        public List<ZonaGeografica> importarZonasGeograficas()
+        public List<ZonaGeografica> ImportarZonasGeograficas()
         {
             List<ZonaGeografica> listaZonas = new List<ZonaGeografica>();
             var zonasGeograficas = JsonConvert.DeserializeObject<List<ZonaGeografica>>(File.ReadAllText(path));
 
             foreach (dynamic zona in zonasGeograficas)
             {
-                listaZonas.Add(new ZonaGeografica(zona.nombre, zona.radio));
+                listaZonas.Add(new ZonaGeografica(zona.Nombre, zona.Radio));
             }
 
             return listaZonas;

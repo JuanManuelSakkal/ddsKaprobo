@@ -28,7 +28,7 @@ namespace TP_Integrador.Clases
         public int TiempoComoAdmin()
         {
             DateTime fechaActual = DateTime.Now;
-            TimeSpan tiempoTranscurrido = fechaActual - this.fechaDeAlta;
+            TimeSpan tiempoTranscurrido = fechaActual - this.FechaDeAlta;
             int meses = tiempoTranscurrido.Days / 30;
             return meses;
         }

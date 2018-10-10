@@ -2,18 +2,23 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
+using System.Data.Entity;
+using System.ComponentModel.DataAnnotations.Schema;
+using System.ComponentModel.DataAnnotations;
 
 namespace TP_Integrador.Clases
 {
+    [Table("Usuarios")]
     public class Usuario
     {
-        public int idUsuario { get; set; }
-        public string nombreUsuario { get; set; }
-        public string password { get; set; }
-        public string nombre { get; set; }
-        public string apellido { get; set; }
-        public string domicilio { get; set; }
-        public DateTime fechaDeAlta { get; set; }
+        [Key, DatabaseGenerated(DatabaseGeneratedOption.Identity)]
+        public int UsuarioID { get; set; }
+        public string NombreUsuario { get; set; }
+        public string Password { get; set; }
+        public string Nombre { get; set; }
+        public string Apellido { get; set; }
+        public string Domicilio { get; set; }
+        public DateTime FechaDeAlta { get; set; }
 
         public Usuario()
         {
@@ -22,24 +27,24 @@ namespace TP_Integrador.Clases
 
         public Usuario(int unId, string unNombreUsuario, string unPassword, string unNombre, string unApellido, string unDomicilio)
         {
-            idUsuario = unId;
-            nombreUsuario = unNombreUsuario;
-            password = unPassword;
-            nombre = unNombre;
-            apellido = unApellido;
-            domicilio = unDomicilio;
-            fechaDeAlta = DateTime.Now;
+            UsuarioID = unId;
+            NombreUsuario = unNombreUsuario;
+            Password = unPassword;
+            Nombre = unNombre;
+            Apellido = unApellido;
+            Domicilio = unDomicilio;
+            FechaDeAlta = DateTime.Now;
         }
 
         public Usuario(int unId, string unNombreUsuario, string unPassword, string unNombre, string unApellido, string unDomicilio, DateTime fechaAlta)
         {
-            idUsuario = unId;
-            nombreUsuario = unNombreUsuario;
-            password = unPassword;
-            nombre = unNombre;
-            apellido = unApellido;
-            domicilio = unDomicilio;
-            fechaDeAlta = fechaAlta;
+            UsuarioID = unId;
+            NombreUsuario = unNombreUsuario;
+            Password = unPassword;
+            Nombre = unNombre;
+            Apellido = unApellido;
+            Domicilio = unDomicilio;
+            FechaDeAlta = fechaAlta;
         }
     }
 

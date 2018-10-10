@@ -11,15 +11,15 @@ namespace TP_Integrador.Helpers
 {
     public class Simplex
     {
-        private List<DispositivoInteligente> dispositivos;
-        private JsonAdapter json;
-        private List<Restriccion> restricciones;
+        private List<DispositivoInteligente> Dispositivos;
+        private JsonAdapter Json;
+        private List<Restriccion> Restricciones;
 
         public Simplex(List<DispositivoInteligente> dispos)
         {
-            json = new JsonAdapter();
-            dispositivos = dispos;
-            restricciones = new List<Restriccion>();
+            Json = new JsonAdapter();
+            Dispositivos = dispos;
+            Restricciones = new List<Restriccion>();
         }
 
         public void AgregarRestriccion(double valorAComparar, DispositivoInteligente dispositivoAComparar, string operador)
@@ -32,16 +32,16 @@ namespace TP_Integrador.Helpers
             //seteando todos los valores del list double a 0 menos el de la posicion del dispositivo a comparar
             if (dispositivoAComparar == null)
             {
-                foreach (DispositivoInteligente dispo in dispositivos)
+                foreach (DispositivoInteligente dispo in Dispositivos)
                 {
-                    valoresDispositivos.Add(dispo.kwPorHora);
+                    valoresDispositivos.Add(dispo.KwPorHora);
                 }
             }
             else
             {
-                for (int i = 0; i < dispositivos.Count(); i++)
+                for (int i = 0; i < Dispositivos.Count(); i++)
                 {
-                    if (dispositivos[i] == dispositivoAComparar)
+                    if (Dispositivos[i] == dispositivoAComparar)
                     {
                         valoresDispositivos.Add(1);
                     }
@@ -54,12 +54,12 @@ namespace TP_Integrador.Helpers
             
             //Creo la restriccion
             Restriccion unaRestriccion = new Restriccion(valorAComparar, valoresDispositivos, operador);
-            restricciones.Add(unaRestriccion);
+            Restricciones.Add(unaRestriccion);
         }
         
         public string Ejecutar()
         {
-            if (restricciones.Count() > 0)
+            if (Restricciones.Count() > 0)
             {
                 var myWebClient = new WebClient();
                 myWebClient.Headers.Add("Content-Type", "application/json");
@@ -80,7 +80,7 @@ namespace TP_Integrador.Helpers
             JObject json = new JObject();
 
             JArray cantVars = new JArray();
-            foreach (DispositivoInteligente dispo in dispositivos)
+            foreach (DispositivoInteligente dispo in Dispositivos)
             {
                 cantVars.Add(1);
             }
@@ -89,19 +89,19 @@ namespace TP_Integrador.Helpers
 
             JArray array = new JArray();
 
-            foreach (Restriccion restriccion in restricciones)
+            foreach (Restriccion restriccion in Restricciones)
             {
                 JObject restriccionJson = new JObject();
 
                 JArray restriccionValues = new JArray();
-                restriccionValues.Add(restriccion.valorAComparar);
-                for (int i = 0; i < restriccion.valoresDeLosDispositivos.Count(); i++)
+                restriccionValues.Add(restriccion.ValorAComparar);
+                for (int i = 0; i < restriccion.ValoresDeLosDispositivos.Count(); i++)
                 {
-                    restriccionValues.Add(restriccion.valoresDeLosDispositivos[i]);
+                    restriccionValues.Add(restriccion.ValoresDeLosDispositivos[i]);
                 }
                 restriccionJson["values"] = restriccionValues;
 
-                restriccionJson["operator"] = restriccion.operador;
+                restriccionJson["operator"] = restriccion.Operador;
 
                 array.Add(restriccionJson);
             }

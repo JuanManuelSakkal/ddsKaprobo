@@ -13,11 +13,11 @@ namespace TP_Integrador.Helpers
     {
         string path;
         HttpServerUtility server = HttpContext.Current.Server;
-        StreamWriter logger;
+        StreamWriter Logg;
 
         public Logger()
         {
-            logger = File.AppendText("C:/Users/sebik/Desktop/UTN/3er Año/Diseño de Sistemas/2018/TPs/ddsKaprobo/TP_Integrador/TP_Integrador/logger.txt");
+            Logg = File.AppendText("C:/Users/sebik/Desktop/UTN/3er Año/Diseño de Sistemas/2018/TPs/ddsKaprobo/TP_Integrador/TP_Integrador/logger.txt");
         }
 
         public Logger(string locationString)
@@ -35,7 +35,7 @@ namespace TP_Integrador.Helpers
         // Para loguear las operaciones
         public void LogMessage(string mensaje/*, TextWriter writer*/)
         {
-            logger.Write("\r\n {0} {1} : {2} ", DateTime.Now.ToLongTimeString(), DateTime.Now.ToLongDateString(), mensaje);
+            Logg.Write("\r\n {0} {1} : {2} ", DateTime.Now.ToLongTimeString(), DateTime.Now.ToLongDateString(), mensaje);
         }
     }
 }

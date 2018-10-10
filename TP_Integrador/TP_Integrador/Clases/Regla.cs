@@ -2,21 +2,25 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
+using System.ComponentModel.DataAnnotations.Schema;
+using System.ComponentModel.DataAnnotations;
 
 namespace TP_Integrador.Clases
 {
     public class Regla : SubjectObserverRegla
     {
-        private bool seCumple;
+        [Key,DatabaseGenerated(DatabaseGeneratedOption.Identity)]
+        public int ReglaID { get; set; }
+        private bool SeEstaCumpliendo;
 
         public bool SeCumple()
         {
-            return seCumple;
+            return SeEstaCumpliendo;
         }
 
         public void SeCumple(bool valor)
         {
-            seCumple = valor;
+            SeEstaCumpliendo = valor;
         }
     }
 }
