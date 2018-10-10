@@ -51,34 +51,21 @@ namespace TP_Integrador.Clases
             return Modo.GetType().Equals(typeof(AhorroEnergia));
         }
 
-        public bool Encender()
+        public void Encender()
         {
-            if(Modo.GetType() != typeof(Encendido))
-            {
-                Modo = new Encendido();
-                HoraPrendido = DateTime.Now;
-            }
-
-            return true;
+            Modo.Encender(this);
+            HoraPrendido = DateTime.Now;
         }
 
-        public bool Apagar()
+        public void Apagar()
         {
-            if(Modo.GetType() != typeof(Apagado))
-            {
-                Modo = new Apagado();
-                // Voy acumulando un TimeSpan para cuando se realice el calculo de consumo
-                //HorasPrendido += (DateTime.Now.TimeOfDay - HoraPrendido.TimeOfDay);
-            }
-
-            return true;
+            Modo.Apagar(this);
+            HoraPrendido = DateTime.MinValue;
         }
 
-        public bool PasarAAhorroDeEnergia()
+        public void PasarAAhorroDeEnergia()
         {
-            Modo = new AhorroEnergia();
-            //bool respuesta = modo.correr o algo asi
-            return true;
+            Modo.PasarAModoAhorro(this);
         }
 
         public float EnergiaConsumidaEnUltimasHs(int horas)

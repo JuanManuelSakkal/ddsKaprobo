@@ -18,6 +18,11 @@ namespace TP_Integrador.Clases
         {
 
         }
+
+        public double CalcularConsumoMensual(int periodo)
+        {
+            return KwPorHora * 30;
+        }
         public void SetHorasUso(int horas) => HorasUso = horas;
 
     }

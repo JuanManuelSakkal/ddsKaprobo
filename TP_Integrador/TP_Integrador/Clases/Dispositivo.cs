@@ -11,6 +11,8 @@ namespace TP_Integrador.Clases
     {
         [Key, DatabaseGenerated(DatabaseGeneratedOption.Identity)]
         public int DispositivoID { get; set; }
+        [Column("Cliente_UsuarioID")]
+        public int Cliente_UsuarioID { get; set; }
         public string NombreDispositivo{ get; set; }
         public double KwPorHora { get; set; }
 
