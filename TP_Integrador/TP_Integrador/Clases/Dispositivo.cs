@@ -14,6 +14,11 @@ namespace TP_Integrador.Clases
         public string NombreDispositivo{ get; set; }
         public double KwPorHora { get; set; }
 
+        public Dispositivo()
+        {
+
+        }
+
         public Dispositivo(string unNombreDispositivo, double unKwPorHora)
         {
             NombreDispositivo = unNombreDispositivo;

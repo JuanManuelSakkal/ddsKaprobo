@@ -9,7 +9,12 @@ namespace TP_Integrador.Clases
     {
         public float HorasUso;
 
-        public DispositivoEstandar(string unNombreDispositivo, int unKwPorHora) : base(unNombreDispositivo, unKwPorHora)
+        public DispositivoEstandar()
+        {
+
+        }
+
+        public DispositivoEstandar(string unNombreDispositivo, double unKwPorHora) : base(unNombreDispositivo, unKwPorHora)
         {
 
         }

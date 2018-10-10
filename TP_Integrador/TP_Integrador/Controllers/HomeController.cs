@@ -52,7 +52,7 @@ namespace TP_Integrador.Controllers
             //Prueba Entity Framework
             using (var db = new ContextoDB())
             {
-                Categoria R1 = new Categoria("R1", 18.76, 0.644);
+                /*Categoria R1 = new Categoria("R1", 18.76, 0.644);
                 db.Categorias.Add(R1);
 
                 DispositivoInteligente aire3500 = new DispositivoInteligente("Aire 3500", 1.613, new FabricanteDePrueba());
@@ -63,7 +63,27 @@ namespace TP_Integrador.Controllers
                 db.Dispositivos.Add(aire3500);
                 db.Dispositivos.Add(tvLed40);
 
-                db.SaveChanges();
+                db.SaveChanges();*/
+
+                DispositivoInteligente aire2200 = null;
+                DispositivoInteligente tvLed40 = null;
+                var dispositivoQuery = from d in db.Dispositivos
+                                orderby d.NombreDispositivo
+                                select d;
+                foreach (var item in dispositivoQuery)
+                {
+                    if (item.NombreDispositivo == "Aire Acondicionado 3500")
+                    {
+                        aire2200 = (DispositivoInteligente)item;
+                    }
+                    else if (item.NombreDispositivo == "TV LED 40")
+                    {
+                        tvLed40 = (DispositivoInteligente)item;
+                    }
+                }
+
+                //DispositivoInteligente aire2200 = (DispositivoInteligente)db.Dispositivos.First(d => d.NombreDispositivo == "Aire Acondicionado 3500");
+                //DispositivoInteligente tvLed40 = (DispositivoInteligente)db.Dispositivos.First(d => d.NombreDispositivo == "TV LED 40");
 
                 //Creo un nuevo cliente
                 Cliente unCliente = new Cliente();
@@ -94,7 +114,7 @@ namespace TP_Integrador.Controllers
 
                 foreach (var item in query)
                 {
-                    ViewData["ClienteDePrueba"] = item.Apellido + " " + item.Nombre;
+                    ViewData["ClienteDePrueba"] = item.Apellido + " " + item.Nombre + " " + item.Dispositivos[0].NombreDispositivo;
                 }
             }
 

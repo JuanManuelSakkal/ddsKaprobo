@@ -21,6 +21,11 @@ namespace TP_Integrador.Clases
         [ForeignKey("InterfazID")]
         public Fabricante Interfaz { get; set; }
 
+        public DispositivoInteligente()
+        {
+
+        }
+
         public DispositivoInteligente(string unNombreDispositivo, double unKwPorHora, Fabricante unaInterfaz) : base(unNombreDispositivo, unKwPorHora)
         {
             Modo = new Apagado();
@@ -28,8 +33,6 @@ namespace TP_Integrador.Clases
             Interfaz = unaInterfaz;
             //HorasPrendido = new TimeSpan(0,0,0);
         }
-
-        //public void AdaptarDispositivo
 
         //public DispositivoInteligenteAdaptado public DispositivoInteligente(string unNombreDispositivo, int unKwPorHora, bool adaptado, Fabricante unaInterfaz) : base(unNombreDispositivo, unKwPorHora)
 
