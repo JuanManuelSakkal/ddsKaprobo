@@ -43,7 +43,7 @@ namespace TP_Integrador.Controllers
             ViewData["Dispositivos"] = dispositivos[0].NombreDispositivo + dispositivos[0].KwPorHora;
 
             //PRUEBA SIMPLEX
-            List<DispositivoInteligente> dispositivosInteligentes = DispositivoInteligenteHandler.GetDispositivoInteligentes();
+            List<DispositivoInteligente> dispositivosInteligentes = DispositivoHandler.GetDispositivosInteligentes(clientes[0].UsuarioID);
             unaConsultaSimplex = new Simplex(dispositivosInteligentes);
             unaConsultaSimplex.AgregarRestriccion(440640, null, "<=");
             unaConsultaSimplex.AgregarRestriccion(90, dispositivosInteligentes[0], ">=");
@@ -72,11 +72,14 @@ namespace TP_Integrador.Controllers
                                 select d;
                 foreach (var item in dispositivoQuery)
                 {
-                    if (item.NombreDispositivo == "Aire Acondicionado 3500")
+                    //if (item.NombreDispositivo == "Aire Acondicionado 3500")
+                    if (item.NombreDispositivo == "Ventilador de pie")
                     {
-                        aire2200 = (DispositivoInteligente)item;
+                        ViewData["objeto"] = item.GetType();
+                        //aire2200 = (DispositivoInteligente)item;
+                        
                     }
-                    else if (item.NombreDispositivo == "TV LED 40")
+                    else if (item.NombreDispositivo == "TV LED 32")
                     {
                         tvLed40 = (DispositivoInteligente)item;
                     }
@@ -99,7 +102,7 @@ namespace TP_Integrador.Controllers
                 unCliente.Telefono = "4888-8888";
                 unCliente.Categoria = CategoriaHandler.GetCategoriaDB("R1");
                 unCliente.Puntos = 0;
-                unCliente.Dispositivos.Add(aire2200);
+                //unCliente.Dispositivos.Add(aire2200);
                 unCliente.Dispositivos.Add(tvLed40);
 
                 System.Diagnostics.Debug.WriteLine("LCDTMAB AGREGO");
@@ -114,7 +117,7 @@ namespace TP_Integrador.Controllers
 
                 foreach (var item in query)
                 {
-                    ViewData["ClienteDePrueba"] = item.Apellido + " " + item.Nombre + " " + item.Dispositivos[0].NombreDispositivo;
+                    ViewData["ClienteDePrueba"] = item.Apellido + " " + item.Nombre /*+ " " + item.Dispositivos[0].NombreDispositivo*/;
                 }
             }
 
