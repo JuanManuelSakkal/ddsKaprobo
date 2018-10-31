@@ -20,7 +20,7 @@ namespace TP_Integrador.Tests
 
         public DispositivoEstandar crearDispositivoEstandar()
         {
-            return new DispositivoEstandar("Whirpool", 1000);
+            return new DispositivoEstandar("Whirpool", 1000, new Cliente(/*COMPLETAR DATOS*/));
         }
 
         [Test]

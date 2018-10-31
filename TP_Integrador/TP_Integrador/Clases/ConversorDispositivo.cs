@@ -22,7 +22,7 @@ namespace TP_Integrador.Clases
 
         public void Convertir(DispositivoEstandar unDispositivo, Cliente unCliente, Fabricante unFabricante)
         {
-            DispositivoInteligente dispositivoInteligente = new DispositivoInteligente(unDispositivo.NombreDispositivo, unDispositivo.KwPorHora, unFabricante);
+            DispositivoInteligente dispositivoInteligente = new DispositivoInteligente(unDispositivo.NombreDispositivo, unDispositivo.KwPorHora, unCliente, unFabricante);
             dispositivoInteligente.EsAdaptado = true;
             unCliente.Dispositivos.Remove(unDispositivo);
             unCliente.Dispositivos.Add(dispositivoInteligente);
@@ -33,7 +33,7 @@ namespace TP_Integrador.Clases
 
         public void RemoverAdaptador(DispositivoInteligente unDispositivo, Cliente unCliente)
         {
-            DispositivoEstandar de = new DispositivoEstandar(unDispositivo.NombreDispositivo, unDispositivo.KwPorHora);
+            DispositivoEstandar de = new DispositivoEstandar(unDispositivo.NombreDispositivo, unDispositivo.KwPorHora, unCliente);
             unCliente.Dispositivos.Remove(unDispositivo);
             unCliente.Dispositivos.Add(de);
 

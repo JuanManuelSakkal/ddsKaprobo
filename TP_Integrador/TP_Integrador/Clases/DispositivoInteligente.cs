@@ -26,7 +26,7 @@ namespace TP_Integrador.Clases
 
         }
 
-        public DispositivoInteligente(string unNombreDispositivo, double unKwPorHora, Fabricante unaInterfaz) : base(unNombreDispositivo, unKwPorHora)
+        public DispositivoInteligente(string unNombreDispositivo, double unKwPorHora, Cliente duenio, Fabricante unaInterfaz) : base(unNombreDispositivo, unKwPorHora, duenio)
         {
             Modo = new Apagado();
             //esAdaptado = adaptado;

@@ -118,7 +118,7 @@ namespace TP_Integrador.Clases
 
         public void AgregarDispositivoEstandar(string unNombreDispositivo, int unKwPorHora)
         {
-            Dispositivos.Add(new DispositivoEstandar(unNombreDispositivo, unKwPorHora));
+            Dispositivos.Add(new DispositivoEstandar(unNombreDispositivo, unKwPorHora, this));
         }
 
         public double EnergiaConsumidaPorDispositivos()

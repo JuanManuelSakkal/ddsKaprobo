@@ -21,10 +21,11 @@ namespace TP_Integrador.Clases
 
         }
 
-        public Dispositivo(string unNombreDispositivo, double unKwPorHora)
+        public Dispositivo(string unNombreDispositivo, double unKwPorHora, Cliente duenio)
         {
             NombreDispositivo = unNombreDispositivo;
             KwPorHora = unKwPorHora;
+            Cliente_UsuarioID = duenio.UsuarioID;
         }
     }
 }

@@ -7,13 +7,13 @@ namespace TP_Integrador.Migrations
     {
         public override void Up()
         {
-            CreateTable(
+            /*CreateTable(
                 "dbo.Migraciones",
                 m => new
                 {
                     MigracionID = m.Int(false, true),
                     Valor = m.Double()
-                }).PrimaryKey(p => p.MigracionID);
+                }).PrimaryKey(p => p.MigracionID);*/
         }
         
         public override void Down()

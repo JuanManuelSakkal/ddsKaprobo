@@ -14,7 +14,7 @@ namespace TP_Integrador.Clases
 
         }
 
-        public DispositivoEstandar(string unNombreDispositivo, double unKwPorHora) : base(unNombreDispositivo, unKwPorHora)
+        public DispositivoEstandar(string unNombreDispositivo, double unKwPorHora, Cliente duenio) : base(unNombreDispositivo, unKwPorHora, duenio)
         {
 
         }

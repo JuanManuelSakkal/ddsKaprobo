@@ -1,6 +1,6 @@
 [
 	{
-	  "idUsuario":"1",
+	  "UsuarioID":"1",
 	  "usuario":"nom",
 	  "password":"askj24nem",
 	  "nombre":"Juan Martin",
@@ -13,7 +13,7 @@
 	  "idCategoria":"R1"
 	},
 	{
-	  "id":"2",
+	  "UsuarioID":"2",
 	  "usuario":"onm",
 	  "password":"asdjk4j5b",
 	  "nombre":"David",
@@ -26,7 +26,7 @@
 	  "idCategoria":"R2"
 	},
 	{
-	  "id":"3",
+	  "UsuarioID":"3",
 	  "usuario":"mon",
 	  "password":"uuhnmn6jh",
 	  "nombre":"Gaston",

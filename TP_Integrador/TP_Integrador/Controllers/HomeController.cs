@@ -30,24 +30,7 @@ namespace TP_Integrador.Controllers
             //Scheduler.Schedule();
             HttpContext.Cache.Add("Prueba", "Prueba2", null, DateTime.MaxValue, TimeSpan.FromSeconds(5), CacheItemPriority.Normal, new CacheItemRemovedCallback(CacheItemRemovedCallback));
 
-            //Importacion de usuarios - VER COMO PASAR A VISTA!!!!
-            List<Cliente> clientes = ClienteImporter.ImportarUsuarios();
-            ViewData["Clientes"] = clientes[0].UsuarioID + clientes[0].Apellido + clientes[0].Nombre + clientes[0].NombreUsuario + clientes[0].Password + clientes[0].TipoDoc + clientes[0].NumeroDoc + clientes[0].Telefono;
-
-            //Importacion de administradores
-            List<Administrador> administradores = AdministradorImporter.ImportarUsuarios();
-            ViewData["Administradores"] = administradores[0].Apellido;
-
-            //Importacion de dispositivos
-            List<DispositivoInteligente> dispositivos = DispositivoImporter.ImportarDispositivosInteligentes();
-            ViewData["Dispositivos"] = dispositivos[0].NombreDispositivo + dispositivos[0].KwPorHora;
-
-            //PRUEBA SIMPLEX
-            List<DispositivoInteligente> dispositivosInteligentes = DispositivoHandler.GetDispositivosInteligentes(clientes[0].UsuarioID);
-            unaConsultaSimplex = new Simplex(dispositivosInteligentes);
-            unaConsultaSimplex.AgregarRestriccion(440640, null, "<=");
-            unaConsultaSimplex.AgregarRestriccion(90, dispositivosInteligentes[0], ">=");
-            ViewData["ResultadoSimplex"] = unaConsultaSimplex.Ejecutar();
+            List<Cliente> clientes = new List<Cliente>();
 
             //Prueba Entity Framework
             using (var db = new ContextoDB())
@@ -65,11 +48,20 @@ namespace TP_Integrador.Controllers
 
                 db.SaveChanges();*/
 
+                var clientesquery = from u in db.Clientes
+                                    orderby u.UsuarioID
+                                    select u;
+
+                foreach (var item in clientesquery)
+                {
+                    clientes.Add((Cliente)item);
+                }
+
                 DispositivoInteligente aire2200 = null;
                 DispositivoInteligente tvLed40 = null;
                 var dispositivoQuery = from d in db.Dispositivos
-                                orderby d.NombreDispositivo
-                                select d;
+                                       orderby d.NombreDispositivo
+                                       select d;
                 foreach (var item in dispositivoQuery)
                 {
                     //if (item.NombreDispositivo == "Aire Acondicionado 3500")
@@ -77,7 +69,7 @@ namespace TP_Integrador.Controllers
                     {
                         ViewData["objeto"] = item.GetType();
                         //aire2200 = (DispositivoInteligente)item;
-                        
+
                     }
                     else if (item.NombreDispositivo == "TV LED 32")
                     {
@@ -111,7 +103,8 @@ namespace TP_Integrador.Controllers
                 System.Diagnostics.Debug.WriteLine("LCDTMAB GUARDO");
                 db.SaveChanges();
 
-                var query = from b in db.Clientes where b.Apellido == "Kaplanski"
+                var query = from b in db.Clientes
+                            where b.Apellido == "Kaplanski"
                             orderby b.Apellido
                             select b;
 
@@ -120,6 +113,27 @@ namespace TP_Integrador.Controllers
                     ViewData["ClienteDePrueba"] = item.Apellido + " " + item.Nombre /*+ " " + item.Dispositivos[0].NombreDispositivo*/;
                 }
             }
+
+            //Importacion de usuarios - VER COMO PASAR A VISTA!!!!
+            //List<Cliente> clientes = ClienteImporter.ImportarUsuarios();
+            ViewData["Clientes"] = clientes[0].UsuarioID + clientes[0].Apellido + clientes[0].Nombre + clientes[0].NombreUsuario + clientes[0].Password + clientes[0].TipoDoc + clientes[0].NumeroDoc + clientes[0].Telefono;
+
+            //Importacion de administradores
+            List<Administrador> administradores = AdministradorImporter.ImportarUsuarios();
+            ViewData["Administradores"] = administradores[0].Apellido;
+
+            //Importacion de dispositivos
+            List<DispositivoInteligente> dispositivos = DispositivoImporter.ImportarDispositivosInteligentes();
+            ViewData["Dispositivos"] = dispositivos[0].NombreDispositivo + dispositivos[0].KwPorHora;
+
+            //PRUEBA SIMPLEX
+            List<DispositivoInteligente> dispositivosInteligentes = DispositivoHandler.GetDispositivosInteligentes(clientes[0].UsuarioID);
+            unaConsultaSimplex = new Simplex(dispositivosInteligentes);
+            unaConsultaSimplex.AgregarRestriccion(440640, null, "<=");
+            unaConsultaSimplex.AgregarRestriccion(90, dispositivosInteligentes[0], ">=");
+            ViewData["ResultadoSimplex"] = unaConsultaSimplex.Ejecutar();
+
+            
 
             return View();
         }
